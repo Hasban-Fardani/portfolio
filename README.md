@@ -18,22 +18,22 @@ A visual portfolio for showcasing creative work, built with [EmDash](https://git
 
 ## Pages
 
-| Page | Route |
-|---|---|
-| Homepage | `/` |
-| Work listing | `/work` |
+| Page           | Route         |
+| -------------- | ------------- |
+| Homepage       | `/`           |
+| Work listing   | `/work`       |
 | Single project | `/work/:slug` |
-| About | `/about` |
-| Contact | `/contact` |
-| RSS | `/rss.xml` |
-| 404 | fallback |
+| About          | `/about`      |
+| Contact        | `/contact`    |
+| RSS            | `/rss.xml`    |
+| 404            | fallback      |
 
 ## Screenshots
 
-| | Desktop | Mobile |
-|---|---|---|
+|       | Desktop                                                                                                                                  | Mobile                                                                                                                                 |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | Light | ![work light desktop](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/portfolio/latest/work-light-desktop.jpg) | ![work light mobile](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/portfolio/latest/work-light-mobile.jpg) |
-| Dark | ![work dark desktop](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/portfolio/latest/work-dark-desktop.jpg) | ![work dark mobile](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/portfolio/latest/work-dark-mobile.jpg) |
+| Dark  | ![work dark desktop](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/portfolio/latest/work-dark-desktop.jpg)   | ![work dark mobile](https://raw.githubusercontent.com/emdash-cms/emdash/main/assets/templates/portfolio/latest/work-dark-mobile.jpg)   |
 
 ## Infrastructure
 

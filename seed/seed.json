@@ -1,1072 +1,1192 @@
 {
-	"$schema": "https://emdashcms.com/seed.schema.json",
-	"version": "1",
-	"meta": {
-		"name": "Hasban Fardani Portfolio",
-		"description": "End-to-End Fullstack Engineer portfolio",
-		"author": "Hasban Fardani"
-	},
-	"settings": {
-		"title": "Hasban Fardani",
-		"tagline": "End-to-End Fullstack Engineer"
-	},
-	"collections": [
-		{
-			"slug": "projects",
-			"label": "Projects",
-			"labelSingular": "Project",
-			"supports": [
-				"drafts",
-				"revisions",
-				"preview",
-				"search",
-				"seo"
-			],
-			"urlPattern": "/work/{slug}",
-			"fields": [
-				{
-					"slug": "title",
-					"label": "Title",
-					"type": "string",
-					"required": true,
-					"searchable": true
-				},
-				{
-					"slug": "featured_image",
-					"label": "Featured Image",
-					"type": "image",
-					"required": true
-				},
-				{
-					"slug": "client",
-					"label": "Client",
-					"type": "string"
-				},
-				{
-					"slug": "year",
-					"label": "Year",
-					"type": "string"
-				},
-				{
-					"slug": "summary",
-					"label": "Summary",
-					"type": "text",
-					"searchable": true
-				},
-				{
-					"slug": "content",
-					"label": "Content",
-					"type": "portableText",
-					"searchable": true
-				},
-				{
-					"slug": "gallery",
-					"label": "Gallery",
-					"type": "repeater",
-					"validation": {
-						"maxItems": 24,
-						"subFields": [
-							{
-								"slug": "image",
-								"label": "Image",
-								"type": "image",
-								"required": true
-							},
-							{
-								"slug": "caption",
-								"label": "Caption",
-								"type": "text"
-							}
-						]
-					}
-				},
-				{
-					"slug": "url",
-					"label": "Project URL",
-					"type": "url"
-				},
-				{
-					"slug": "highlight",
-					"label": "Highlight Badge",
-					"type": "string"
-				},
-				{
-					"slug": "status_label",
-					"label": "Status Label",
-					"type": "string"
-				},
-				{
-					"slug": "sort_order",
-					"label": "Sort Order",
-					"type": "integer"
-				}
-			]
-		},
-		{
-			"slug": "pages",
-			"label": "Pages",
-			"labelSingular": "Page",
-			"supports": [
-				"drafts",
-				"revisions",
-				"preview",
-				"search",
-				"seo"
-			],
-			"urlPattern": "/{slug}",
-			"fields": [
-				{
-					"slug": "title",
-					"label": "Title",
-					"type": "string",
-					"required": true,
-					"searchable": true
-				},
-				{
-					"slug": "content",
-					"label": "Content",
-					"type": "portableText",
-					"searchable": true
-				}
-			]
-		},
-		{
-			"slug": "cases",
-			"label": "Case Studies",
-			"labelSingular": "Case Study",
-			"supports": [
-				"drafts",
-				"revisions",
-				"preview",
-				"search"
-			],
-			"fields": [
-				{
-					"slug": "title",
-					"label": "Title",
-					"type": "string",
-					"required": true,
-					"searchable": true
-				},
-				{
-					"slug": "kicker",
-					"label": "Kicker",
-					"type": "string"
-				},
-				{
-					"slug": "summary",
-					"label": "Summary",
-					"type": "text",
-					"searchable": true
-				},
-				{
-					"slug": "metric",
-					"label": "Metric",
-					"type": "string"
-				},
-				{
-					"slug": "metric_label",
-					"label": "Metric Label",
-					"type": "string"
-				},
-				{
-					"slug": "pipeline",
-					"label": "Pipeline",
-					"type": "string"
-				},
-				{
-					"slug": "code",
-					"label": "Code",
-					"type": "text"
-				},
-				{
-					"slug": "sort_order",
-					"label": "Sort Order",
-					"type": "integer"
-				}
-			]
-		},
-		{
-			"slug": "pillars",
-			"label": "Pillars",
-			"labelSingular": "Pillar",
-			"supports": [
-				"drafts",
-				"revisions",
-				"preview"
-			],
-			"fields": [
-				{
-					"slug": "title",
-					"label": "Title",
-					"type": "string",
-					"required": true
-				},
-				{
-					"slug": "kicker",
-					"label": "Kicker",
-					"type": "string"
-				},
-				{
-					"slug": "badge",
-					"label": "Badge",
-					"type": "string"
-				},
-				{
-					"slug": "body",
-					"label": "Body",
-					"type": "text"
-				},
-				{
-					"slug": "sort_order",
-					"label": "Sort Order",
-					"type": "integer"
-				}
-			]
-		},
-		{
-			"slug": "experiences",
-			"label": "Experiences",
-			"labelSingular": "Experience",
-			"supports": [
-				"drafts",
-				"revisions",
-				"preview"
-			],
-			"fields": [
-				{
-					"slug": "title",
-					"label": "Title (Company/Org)",
-					"type": "string",
-					"required": true
-				},
-				{
-					"slug": "meta",
-					"label": "Meta (Role · Period · Location)",
-					"type": "string"
-				},
-				{
-					"slug": "points",
-					"label": "Points",
-					"type": "repeater",
-					"validation": {
-						"subFields": [
-							{
-								"slug": "title",
-								"label": "Title",
-								"type": "string"
-							},
-							{
-								"slug": "body",
-								"label": "Body",
-								"type": "text"
-							}
-						]
-					}
-				},
-				{
-					"slug": "sort_order",
-					"label": "Sort Order",
-					"type": "integer"
-				}
-			]
-		},
-		{
-			"slug": "homepage",
-			"label": "Homepage",
-			"labelSingular": "Homepage",
-			"supports": [
-				"drafts",
-				"revisions",
-				"preview"
-			],
-			"fields": [
-				{
-					"slug": "hero_eyebrow",
-					"label": "Hero Eyebrow",
-					"type": "string"
-				},
-				{
-					"slug": "hero_meta",
-					"label": "Hero Meta",
-					"type": "string"
-				},
-				{
-					"slug": "hero_line1",
-					"label": "Hero Line 1",
-					"type": "string"
-				},
-				{
-					"slug": "hero_line2",
-					"label": "Hero Line 2",
-					"type": "string"
-				},
-				{
-					"slug": "hero_line_accent",
-					"label": "Hero Line Accent",
-					"type": "string"
-				},
-				{
-					"slug": "hero_pitch",
-					"label": "Hero Pitch",
-					"type": "text"
-				},
-				{
-					"slug": "metrics",
-					"label": "Metrics",
-					"type": "repeater",
-					"validation": {
-						"subFields": [
-							{
-								"slug": "value",
-								"label": "Value",
-								"type": "string"
-							},
-							{
-								"slug": "label",
-								"label": "Label",
-								"type": "string"
-							}
-						]
-					}
-				},
-				{
-					"slug": "layers",
-					"label": "Stack Layers",
-					"type": "repeater",
-					"validation": {
-						"subFields": [
-							{
-								"slug": "kicker",
-								"label": "Kicker",
-								"type": "string"
-							},
-							{
-								"slug": "badge",
-								"label": "Badge / Tools",
-								"type": "string"
-							},
-							{
-								"slug": "title",
-								"label": "Title",
-								"type": "string"
-							},
-							{
-								"slug": "description",
-								"label": "Description",
-								"type": "text"
-							},
-							{
-								"slug": "note",
-								"label": "Inspector Note",
-								"type": "text"
-							}
-						]
-					}
-				},
-				{
-					"slug": "manifesto_kicker",
-					"label": "Manifesto Kicker",
-					"type": "string"
-				},
-				{
-					"slug": "manifesto",
-					"label": "Manifesto",
-					"type": "text"
-				},
-				{
-					"slug": "systems_kicker",
-					"label": "Systems Kicker",
-					"type": "string"
-				},
-				{
-					"slug": "systems_title",
-					"label": "Systems Title",
-					"type": "string"
-				},
-				{
-					"slug": "systems_intro",
-					"label": "Systems Intro",
-					"type": "text"
-				},
-				{
-					"slug": "clients_kicker",
-					"label": "Clients Kicker",
-					"type": "string"
-				},
-				{
-					"slug": "clients_title",
-					"label": "Clients Title",
-					"type": "string"
-				},
-				{
-					"slug": "serp_items",
-					"label": "SERP Items",
-					"type": "repeater",
-					"validation": {
-						"subFields": [
-							{
-								"slug": "key",
-								"label": "Key",
-								"type": "string"
-							},
-							{
-								"slug": "button_label",
-								"label": "Button Label",
-								"type": "string"
-							},
-							{
-								"slug": "query",
-								"label": "Query",
-								"type": "string"
-							},
-							{
-								"slug": "url",
-								"label": "URL",
-								"type": "string"
-							},
-							{
-								"slug": "title",
-								"label": "Title",
-								"type": "string"
-							},
-							{
-								"slug": "description",
-								"label": "Description",
-								"type": "text"
-							},
-							{
-								"slug": "note",
-								"label": "Note",
-								"type": "string"
-							}
-						]
-					}
-				},
-				{
-					"slug": "capabilities_kicker",
-					"label": "Capabilities Kicker",
-					"type": "string"
-				},
-				{
-					"slug": "capabilities_title",
-					"label": "Capabilities Title",
-					"type": "string"
-				},
-				{
-					"slug": "experience_kicker",
-					"label": "Experience Kicker",
-					"type": "string"
-				},
-				{
-					"slug": "experience_title",
-					"label": "Experience Title",
-					"type": "string"
-				},
-				{
-					"slug": "contact_kicker",
-					"label": "Contact Kicker",
-					"type": "string"
-				},
-				{
-					"slug": "contact_title",
-					"label": "Contact Title",
-					"type": "string"
-				},
-				{
-					"slug": "contact_body",
-					"label": "Contact Body",
-					"type": "text"
-				},
-				{
-					"slug": "contact_email",
-					"label": "Contact Email",
-					"type": "string"
-				},
-				{
-					"slug": "contact_whatsapp_url",
-					"label": "WhatsApp URL",
-					"type": "string"
-				},
-				{
-					"slug": "contact_website_url",
-					"label": "Website URL",
-					"type": "string"
-				}
-			]
-		}
-	],
-	"taxonomies": [
-		{
-			"name": "tag",
-			"label": "Tags",
-			"labelSingular": "Tag",
-			"hierarchical": false,
-			"collections": [
-				"projects"
-			],
-			"terms": [
-				{
-					"slug": "identity",
-					"label": "Identity"
-				},
-				{
-					"slug": "ui-ux",
-					"label": "UI/UX"
-				},
-				{
-					"slug": "development",
-					"label": "Development"
-				},
-				{
-					"slug": "art-direction",
-					"label": "Art Direction"
-				},
-				{
-					"slug": "packaging",
-					"label": "Packaging"
-				},
-				{
-					"slug": "ecommerce",
-					"label": "E-commerce"
-				},
-				{
-					"slug": "editorial",
-					"label": "Editorial"
-				}
-			]
-		}
-	],
-	"menus": [
-		{
-			"name": "primary",
-			"label": "Primary Navigation",
-			"items": [
-				{
-					"type": "custom",
-					"label": "Overview",
-					"url": "#section-overview"
-				},
-				{
-					"type": "custom",
-					"label": "Systems",
-					"url": "#section-systems"
-				},
-				{
-					"type": "custom",
-					"label": "Clients",
-					"url": "#section-clients"
-				},
-				{
-					"type": "custom",
-					"label": "Stack",
-					"url": "#section-capabilities"
-				},
-				{
-					"type": "custom",
-					"label": "Trajectory",
-					"url": "#section-experience"
-				},
-				{
-					"type": "custom",
-					"label": "Contact",
-					"url": "#section-contact"
-				}
-			]
-		}
-	],
-	"content": {
-		"pages": [
-			{
-				"id": "about",
-				"slug": "about",
-				"status": "published",
-				"data": {
-					"title": "About",
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "We are a small design studio focused on creating meaningful work for thoughtful clients. Founded in 2020, we've had the privilege of working with brands across technology, culture, and the arts.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Our approach is simple: listen carefully, think deeply, and craft with intention. We believe that good design is invisible — it gets out of the way and lets the work speak for itself.",
-									"_key": "k3"
-								}
-							],
-							"_key": "k2"
-						},
-						{
-							"_type": "block",
-							"style": "h2",
-							"children": [
-								{
-									"_type": "span",
-									"text": "What we do",
-									"_key": "k5"
-								}
-							],
-							"_key": "k4"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "We specialize in brand identity, web design, and art direction. Whether you need a complete visual identity or a single website, we bring the same level of care and attention to every project.",
-									"_key": "k7"
-								}
-							],
-							"_key": "k6"
-						}
-					]
-				}
-			}
-		],
-		"projects": [
-			{
-				"id": "kalibrasi-metrotech",
-				"slug": "kalibrasi-metrotech",
-				"status": "published",
-				"data": {
-					"title": "PT Metrotech Permata Engineering",
-					"client": "kalibrasimetrotech.co.id",
-					"year": "2025",
-					"summary": "KAN ISO/IEC 17025 calibration & TUTSIT laboratory site: 512+ projects delivered, 40+ calibration categories, ranked #1 on Google for kalibrasi tutsit.",
-					"url": "https://kalibrasimetrotech.co.id",
-					"highlight": "#1 Google — kalibrasi tutsit",
-					"status_label": "#1 on Google",
-					"sort_order": 1,
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-							"alt": "Engineer calibrating precision measurement equipment in a laboratory",
-							"filename": "metrotech.jpg"
-						}
-					},
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "A calibration laboratory platform engineered around keyword architecture, JSON-LD structured data and 90+ Core Web Vitals, taking kalibrasimetrotech.co.id to #1 on Google for kalibrasi tutsit with a WhatsApp RFQ funnel.",
-									"_key": "m1s"
-								}
-							],
-							"_key": "m1"
-						}
-					]
-				},
-				"taxonomies": {
-					"tag": [
-						"development"
-					]
-				}
-			},
-			{
-				"id": "barkas-jaya",
-				"slug": "barkas-jaya",
-				"status": "published",
-				"data": {
-					"title": "Barkas Jaya Solusindo",
-					"client": "barkasjayasolusindo.com",
-					"year": "2025",
-					"summary": "B2B asset buyout platform: 10-category Material Finder, 5-photo WhatsApp survey funnel, NIB/PKP trust signals and Page-1 SEO.",
-					"url": "https://barkasjayasolusindo.com",
-					"highlight": "Page-1 SEO — Material Finder",
-					"status_label": "Page-1 on Google",
-					"sort_order": 2,
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
-							"alt": "Warehouse aisle with industrial materials ready for B2B asset buyout",
-							"filename": "barkas.jpg"
-						}
-					},
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "A B2B asset-buyout site for Bandung industry: sellers find their material category in seconds and send a 5-photo WhatsApp survey, while technical SEO carries the business to Page 1.",
-									"_key": "b1s"
-								}
-							],
-							"_key": "b1"
-						}
-					]
-				},
-				"taxonomies": {
-					"tag": [
-						"development"
-					]
-				}
-			},
-			{
-				"id": "mybgi",
-				"slug": "mybgi",
-				"status": "published",
-				"data": {
-					"title": "MyBGI — Field Worker Platform",
-					"client": "MyBGI (Internal)",
-					"year": "2025",
-					"summary": "Internal platform serving 137 field workers: Laravel, Filament and Nginx, shipped in under 2 weeks with older-user-friendly UX and small-server tuning.",
-					"highlight": "137 field workers",
-					"status_label": "Production Active",
-					"sort_order": 3,
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
-							"alt": "Field workers coordinating on a construction site at sunrise",
-							"filename": "mybgi.jpg"
-						}
-					},
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "MyBGI coordinates 137 field workers daily. Built with Laravel, Filament and Nginx and shipped in under two weeks, tuned for low-spec servers and older users.",
-									"_key": "g1s"
-								}
-							],
-							"_key": "g1"
-						}
-					]
-				}
-			},
-			{
-				"id": "warungpintar-ai",
-				"slug": "warungpintar-ai",
-				"status": "published",
-				"data": {
-					"title": "WarungPintar.AI & Honors",
-					"client": "WarungPintar.AI",
-					"year": "2024",
-					"summary": "AI point of sale with Flutter, Hono and Cloudflare AI — sales by photo and voice. 1st Place LKS 2024, Codewars 5 kyu.",
-					"highlight": "1st Place LKS 2024",
-					"status_label": "1st Place · LKS 2024",
-					"sort_order": 4,
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
-							"alt": "Shop owner completing a sale on a modern point-of-sale terminal",
-							"filename": "warungpintar.jpg"
-						}
-					},
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "WarungPintar.AI lets small shops ring up sales from a photo or voice note using Flutter, Hono and Cloudflare AI. The project took 1st Place at LKS 2024.",
-									"_key": "w1s"
-								}
-							],
-							"_key": "w1"
-						}
-					]
-				}
-			}
-		],
-		"cases": [
-			{
-				"id": "case-01-payment",
-				"slug": "case-01-payment",
-				"status": "published",
-				"data": {
-					"title": "Tamper-Proof Payment Gateway Callbacks",
-					"kicker": "Case 01 — Payment Security",
-					"summary": "Payment webhooks are public URLs — anyone can POST to them. Every callback is verified with an HMAC-SHA256 signature and processed inside a PostgreSQL row lock, so forged or double-clicked confirmations can never mark an unpaid order as paid.",
-					"metric": "0 Spoofed",
-					"metric_label": "Spoofed callbacks accepted",
-					"pipeline": "Gateway Webhook → HMAC Verify → PostgreSQL Lock",
-					"sort_order": 1,
-					"code": "public function handle(Request $request)\n{\n    $payload   = $request->getContent();\n    $signature = $request->header('X-Signature');\n    $expected  = hash_hmac('sha256', $payload, config('pay.secret'));\n\n    if (! hash_equals($expected, (string) $signature)) {\n        abort(403, 'Invalid signature');\n    }\n\n    $data  = json_decode($payload, true);\n    $order = DB::transaction(function () use ($data) {\n        $order = Order::where('ref', $data['order_id'])\n            ->lockForUpdate()\n            ->firstOrFail();\n\n        if ($order->status === 'paid') {\n            return $order; // duplicate click: safe no-op\n        }\n\n        $order->update(['status' => 'paid', 'paid_at' => now()]);\n        return $order;\n    });\n\n    return response()->json(['received' => true]);\n}"
-				}
-			},
-			{
-				"id": "case-02-marketplace",
-				"slug": "case-02-marketplace",
-				"status": "published",
-				"data": {
-					"title": "Swiss Classified-Ads Marketplace Upgrade",
-					"kicker": "Case 02 — Marketplace Upgrade",
-					"summary": "A production Swiss classified-ads platform moved from Laravel 10 to Laravel 13 in about two weeks: dependency audit first, staged upgrades, then PayPal checkout finalized without dropping live listings or payments.",
-					"metric": "2 Weeks",
-					"metric_label": "Laravel 10 → 13, zero-downtime cutover",
-					"pipeline": "Laravel 10 Legacy → Dependency Audit → Laravel 13 + PayPal",
-					"sort_order": 2,
-					"code": "public function finalize(string $paypalOrderId): Payment\n{\n    $capture = $this->paypal->captureOrder($paypalOrderId);\n\n    return DB::transaction(function () use ($capture) {\n        $payment = Payment::where('provider_ref', $capture->id)\n            ->lockForUpdate()\n            ->firstOrFail();\n\n        if ($payment->status === 'captured') {\n            return $payment; // idempotent retry\n        }\n\n        $payment->update([\n            'status'      => 'captured',\n            'amount'      => $capture->amount,\n            'captured_at' => now(),\n        ]);\n\n        $payment->listing->markAsPaid();\n        return $payment;\n    });\n}"
-				}
-			},
-			{
-				"id": "case-03-erp",
-				"slug": "case-03-erp",
-				"status": "published",
-				"data": {
-					"title": "ERP Module Suite Protected by Pest Tests",
-					"kicker": "Case 03 — ERP & Pest QA",
-					"summary": "Quotation & RAB, contract lifecycle, and termin (installment) invoicing for an internal ERP. Money-moving state transitions are locked down by Pest tests, so a refactor cannot silently change what a client owes.",
-					"metric": "Pest QA",
-					"metric_label": "Automated tests on every termin flow",
-					"pipeline": "Quotation & RAB → Contract Lifecycle → Termin Invoice + Pest",
-					"sort_order": 3,
-					"code": "it('issues a termin invoice only once per milestone', function () {\n    $contract = Contract::factory()\n        ->withTerminPlan([30, 40, 30])\n        ->create();\n\n    $first  = app(InvoiceService::class)->issueTermin($contract, 1);\n    $second = app(InvoiceService::class)->issueTermin($contract, 1);\n\n    expect($first->id)->toBe($second->id)\n        ->and($contract->invoices()->count())->toBe(1)\n        ->and($first->amount)->toBe('3000000.00');\n});\n\nit('rejects a termin beyond the contract total', function () {\n    $contract = Contract::factory()->fullyInvoiced()->create();\n\n    app(InvoiceService::class)->issueTermin($contract, 4);\n})->throws(InvalidTerminException::class);"
-				}
-			},
-			{
-				"id": "case-04-platform",
-				"slug": "case-04-platform",
-				"status": "published",
-				"data": {
-					"title": "Reusable API Library, Gov Sync & Face Recognition",
-					"kicker": "Case 04 — Platform & AI",
-					"summary": "One reusable Laravel API library now powers 3+ projects: government-platform sync with retry-safe connectors, plus AWS Rekognition face matching — all answering in under 3 seconds on a 1GB VM.",
-					"metric": "< 3s API",
-					"metric_label": "Reusable SDK · Gov sync · Rekognition on 1GB VM",
-					"pipeline": "Reusable API SDK → Gov Platform Sync → AWS Rekognition & 1GB VM",
-					"sort_order": 4,
-					"code": "final class GovSyncConnector\n{\n    public function push(AttendanceBatch $batch): SyncResult\n    {\n        return retry(3, function () use ($batch) {\n            $response = Http::withToken($this->token())\n                ->timeout(10)\n                ->post($this->endpoint . '/attendance', [\n                    'batch_id' => $batch->uuid, // idempotency key\n                    'records'  => $batch->toGovPayload(),\n                ]);\n\n            $response->throw();\n            return SyncResult::accepted($response->json('receipt'));\n        }, 250);\n    }\n}"
-				}
-			}
-		],
-		"pillars": [
-			{
-				"id": "pillar-backend",
-				"slug": "pillar-backend",
-				"status": "published",
-				"data": {
-					"title": "Backend & Enterprise ERP",
-					"kicker": "P01 — Backend",
-					"badge": "HMAC-SHA256 · Pest QA",
-					"body": "Tamper-proof payment callbacks, quotation-to-termin ERP flows, and reusable API libraries — verified, locked, and tested before they touch money.",
-					"sort_order": 1
-				}
-			},
-			{
-				"id": "pillar-seo",
-				"slug": "pillar-seo",
-				"status": "published",
-				"data": {
-					"title": "Client Web & #1 Google SEO",
-					"kicker": "P02 — Client Web & SEO",
-					"badge": "#1 kalibrasi tutsit",
-					"body": "B2B sites engineered around keyword architecture, JSON-LD, and 90+ Core Web Vitals — built to be found first and to turn searches into WhatsApp enquiries.",
-					"sort_order": 2
-				}
-			},
-			{
-				"id": "pillar-mobile",
-				"slug": "pillar-mobile",
-				"status": "published",
-				"data": {
-					"title": "Mobile AI & Biometrics",
-					"kicker": "P03 — Mobile & AI",
-					"badge": "GIS · AWS Rekognition",
-					"body": "React Native and Flutter apps with geofencing, face recognition, and AI input (photo/voice) that field teams actually enjoy using.",
-					"sort_order": 3
-				}
-			},
-			{
-				"id": "pillar-infra",
-				"slug": "pillar-infra",
-				"status": "published",
-				"data": {
-					"title": "Infrastructure & Tuning",
-					"kicker": "P04 — Infrastructure",
-					"badge": "< 3s on 1GB VM",
-					"body": "Nginx, PHP-FPM, Octane, and NestJS tuned to answer in under 3 seconds on a 1GB VM. Lean servers, production manners.",
-					"sort_order": 4
-				}
-			}
-		],
-		"experiences": [
-			{
-				"id": "exp-maxximum",
-				"slug": "exp-maxximum",
-				"status": "published",
-				"data": {
-					"title": "PT Maxximum Digital Indonesia (Artristik Studio)",
-					"meta": "Software Engineer · Sep 2025 — Present · Bandung",
-					"sort_order": 1,
-					"points": [
-						{
-							"title": "Payments, Marketplace & ERP",
-							"body": "Payment flows with HMAC-verified gateway callbacks; Swiss marketplace Laravel 10→13 upgrade with PayPal; Pest-tested ERP modules (Quotation & RAB, contracts, termin invoices)."
-						},
-						{
-							"title": "Platform & AI",
-							"body": "Reusable API library across 3+ projects, government-platform sync, Lit components and AWS Rekognition face recognition."
-						}
-					]
-				}
-			},
-			{
-				"id": "exp-bara",
-				"slug": "exp-bara",
-				"status": "published",
-				"data": {
-					"title": "PT Bara Multi Prima Teknovasi",
-					"meta": "Software Engineering Intern · Nov 2024 — Jun 2025",
-					"sort_order": 2,
-					"points": [
-						{
-							"title": "GIS Attendance Platform",
-							"body": "PostgreSQL + Laravel API + React Native GIS geofencing attendance for field teams."
-						},
-						{
-							"title": "Lean Services & App Redesign",
-							"body": "NestJS + GraphQL services under 3s on a 1GB VM; Capacitor app redesign for field usability."
-						}
-					]
-				}
-			},
-			{
-				"id": "exp-smkn11",
-				"slug": "exp-smkn11",
-				"status": "published",
-				"data": {
-					"title": "SMKN 11 Bandung",
-					"meta": "Top-Ranked Graduate · GPA 89.01 · 2024 — 2025",
-					"sort_order": 3,
-					"points": [
-						{
-							"title": "1st Place LKS 2024",
-							"body": "1st Place, LKS Web Technologies — Bandung City 2024."
-						},
-						{
-							"title": "LSP Highly Competent 2025",
-							"body": "LSP certification: Highly Competent across 18 units (2025)."
-						},
-						{
-							"title": "Student Excellence / Codewars",
-							"body": "Student Excellence Award 2025; Codewars 5 kyu (90 kata)."
-						}
-					]
-				}
-			}
-		],
-		"homepage": [
-			{
-				"id": "home",
-				"slug": "home",
-				"status": "published",
-				"data": {
-					"hero_eyebrow": "End-to-End Fullstack Engineer · Cimahi / Bandung",
-					"hero_meta": "Web Apps · ERP & Payment APIs · Mobile & AI · #1 Google SEO",
-					"hero_line1": "I build complete",
-					"hero_line2": "digital products from",
-					"hero_line_accent": "database to #1 SEO.",
-					"hero_pitch": "I'm Hasban Fardani. I design the PostgreSQL schema, build the Laravel payment backend, guard the ERP with Pest tests, ship the mobile app with AI features — and rank the client site #1 on Google for kalibrasi tutsit. One engineer, the whole lifecycle, no hand-offs lost.",
-					"metrics": [
-						{
-							"value": "#1 Google",
-							"label": "Google ranking"
-						},
-						{
-							"value": "1,000+",
-							"label": "Catalog & project scale"
-						},
-						{
-							"value": "0 Spoofs",
-							"label": "Spoofed payments"
-						},
-						{
-							"value": "1st Place",
-							"label": "LKS Web Tech 2024"
-						}
-					],
-					"layers": [
-						{
-							"kicker": "Layer 01",
-							"badge": "React · Vue · Livewire · Tailwind & JSON-LD",
-							"title": "Frontend & #1 Google SEO",
-							"description": "Interfaces built to convert and rank, with structured data that helped client sites reach #1 on Google.",
-							"note": "Active focus: semantic React/Vue/Livewire frontends, Tailwind styling, and JSON-LD structured data that helped client sites reach #1 on Google."
-						},
-						{
-							"kicker": "Layer 02",
-							"badge": "Laravel 10–13 · Filament · Octane & NestJS · HMAC-SHA256",
-							"title": "Backend ERP & Payment API",
-							"description": "Business logic that cannot fail quietly: ERP suites and payment callbacks verified with HMAC-SHA256.",
-							"note": "Active focus: Laravel/Filament ERP suites, Octane and NestJS services, and payment callbacks verified with HMAC-SHA256 so spoofed webhooks never touch the ledger."
-						},
-						{
-							"kicker": "Layer 03",
-							"badge": "React Native · Flutter · Hono & AWS Rekognition · GIS + AI",
-							"title": "Mobile AI & Biometrics",
-							"description": "Field-ready mobile with GIS geofencing, edge APIs and face matching for real-world attendance.",
-							"note": "Active focus: React Native and Flutter apps with GIS geofencing, Hono edge APIs, and AWS Rekognition face matching for attendance and identity in the real world."
-						},
-						{
-							"kicker": "Layer 04",
-							"badge": "PostgreSQL Row Locks · Pest PHP · Docker & Nginx · < 3s on 1GB VM",
-							"title": "Data Pest QA & DevOps",
-							"description": "Proof before production: row locks, Pest suites and Docker/Nginx tuning under 3 seconds on a 1GB VM.",
-							"note": "Active focus: normalized PostgreSQL schemas with row locks, Pest test suites guarding ERP money flows, and Docker/Nginx tuning that stays under 3 seconds on a 1GB VM."
-						}
-					],
-					"manifesto_kicker": "Engineering Philosophy",
-					"manifesto": "Most developers only touch one slice of a product. I take ownership of the whole lifecycle: designing normalized PostgreSQL schemas, protecting payment webhooks against spoofing, writing automated Pest tests, configuring Nginx on lean 1 GB RAM servers, and ranking client websites #1 on Google for keywords like kalibrasi tutsit.",
-					"systems_kicker": "01 / Enterprise & Backend Systems (NDA-Safe Case Studies)",
-					"systems_title": "Production Engineering at PT Maxximum Digital & PT Bara Multi Prima",
-					"systems_intro": "",
-					"clients_kicker": "02 / Live Commercial Client Platforms & #1 Google SEO",
-					"clients_title": "Client Websites Ranked #1 on Google Search & Independent Builds",
-					"serp_items": [
-						{
-							"key": "metrotech",
-							"button_label": "kalibrasi tutsit — metrotech",
-							"query": "kalibrasi tutsit",
-							"url": "https://kalibrasimetrotech.co.id",
-							"title": "PT Metrotech Permata Engineering — Jasa Kalibrasi TUTSIT & Alat Ukur KAN ISO/IEC 17025",
-							"description": "Jasa kalibrasi TUTSIT dan alat ukur terakreditasi KAN ISO/IEC 17025. Laboratorium kalibrasi untuk industri manufaktur, otomotif, dan laboratorium uji.",
-							"note": "Keyword architecture + JSON-LD + 90+ Core Web Vitals + 40+ catalog + WhatsApp RFQ"
-						},
-						{
-							"key": "barkas",
-							"button_label": "barkas",
-							"query": "barkas jaya solusindo",
-							"url": "https://barkasjayasolusindo.com",
-							"title": "Barkas Jaya Solusindo — Akuisisi Aset, Bongkaran & Material B2B Bandung",
-							"description": "Jasa akuisisi aset, bongkaran gedung, dan material bekas industri untuk B2B di Bandung. Survey foto via WhatsApp, penawaran cepat, legalitas NIB/PKP.",
-							"note": "10-category Material Finder + 5-photo WhatsApp survey + Page-1 SEO"
-						}
-					],
-					"capabilities_kicker": "03 / Full-Spectrum Engineering Matrix",
-					"capabilities_title": "Built to Architect & Ship Any Layer of a Modern Product",
-					"experience_kicker": "04 / Career Trajectory & Credentials",
-					"experience_title": "Career Trajectory & Credentials",
-					"contact_kicker": "05 / Available for Fullstack & Backend Roles or Client Projects",
-					"contact_title": "Need a system built or a site ranked #1?",
-					"contact_body": "Based in Cimahi / Bandung — available on-site in Bandung, remote, and for end-to-end projects: database, backend, mobile, and the SEO that gets the product found.",
-					"contact_email": "hasbanfardani@gmail.com",
-					"contact_whatsapp_url": "https://wa.me/6285183200603",
-					"contact_website_url": "https://hasban.my.id"
-				}
-			}
-		]
-	}
+  "$schema": "https://emdashcms.com/seed.schema.json",
+  "version": "1",
+  "meta": {
+    "name": "Hasban Fardani Portfolio",
+    "description": "End-to-End Fullstack Engineer portfolio",
+    "author": "Hasban Fardani"
+  },
+  "settings": {
+    "title": "Hasban Fardani",
+    "tagline": "End-to-End Fullstack Engineer"
+  },
+  "collections": [
+    {
+      "slug": "projects",
+      "label": "Projects",
+      "labelSingular": "Project",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "search",
+        "seo"
+      ],
+      "urlPattern": "/work/{slug}",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "featured_image",
+          "label": "Featured Image",
+          "type": "image",
+          "required": true
+        },
+        {
+          "slug": "client",
+          "label": "Client",
+          "type": "string"
+        },
+        {
+          "slug": "year",
+          "label": "Year",
+          "type": "string"
+        },
+        {
+          "slug": "summary",
+          "label": "Summary",
+          "type": "text",
+          "searchable": true
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "searchable": true
+        },
+        {
+          "slug": "gallery",
+          "label": "Gallery",
+          "type": "repeater",
+          "validation": {
+            "maxItems": 24,
+            "subFields": [
+              {
+                "slug": "image",
+                "label": "Image",
+                "type": "image",
+                "required": true
+              },
+              {
+                "slug": "caption",
+                "label": "Caption",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "url",
+          "label": "Project URL",
+          "type": "url"
+        },
+        {
+          "slug": "highlight",
+          "label": "Highlight Badge",
+          "type": "string"
+        },
+        {
+          "slug": "status_label",
+          "label": "Status Label",
+          "type": "string"
+        },
+        {
+          "slug": "sort_order",
+          "label": "Sort Order",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "slug": "pages",
+      "label": "Pages",
+      "labelSingular": "Page",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "search",
+        "seo"
+      ],
+      "urlPattern": "/{slug}",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "searchable": true
+        }
+      ]
+    },
+    {
+      "slug": "cases",
+      "label": "Case Studies",
+      "labelSingular": "Case Study",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "search"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "kicker",
+          "label": "Kicker",
+          "type": "string"
+        },
+        {
+          "slug": "summary",
+          "label": "Summary",
+          "type": "text",
+          "searchable": true
+        },
+        {
+          "slug": "metric",
+          "label": "Metric",
+          "type": "string"
+        },
+        {
+          "slug": "metric_label",
+          "label": "Metric Label",
+          "type": "string"
+        },
+        {
+          "slug": "pipeline",
+          "label": "Pipeline",
+          "type": "string"
+        },
+        {
+          "slug": "code",
+          "label": "Code",
+          "type": "text"
+        },
+        {
+          "slug": "sort_order",
+          "label": "Sort Order",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "slug": "pillars",
+      "label": "Pillars",
+      "labelSingular": "Pillar",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "kicker",
+          "label": "Kicker",
+          "type": "string"
+        },
+        {
+          "slug": "badge",
+          "label": "Badge",
+          "type": "string"
+        },
+        {
+          "slug": "body",
+          "label": "Body",
+          "type": "text"
+        },
+        {
+          "slug": "sort_order",
+          "label": "Sort Order",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "slug": "experiences",
+      "label": "Experiences",
+      "labelSingular": "Experience",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title (Company/Org)",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "meta",
+          "label": "Meta (Role · Period · Location)",
+          "type": "string"
+        },
+        {
+          "slug": "points",
+          "label": "Points",
+          "type": "repeater",
+          "validation": {
+            "subFields": [
+              {
+                "slug": "title",
+                "label": "Title",
+                "type": "string"
+              },
+              {
+                "slug": "body",
+                "label": "Body",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "sort_order",
+          "label": "Sort Order",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "slug": "homepage",
+      "label": "Homepage",
+      "labelSingular": "Homepage",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "fields": [
+        {
+          "slug": "hero_eyebrow",
+          "label": "Hero Eyebrow",
+          "type": "string"
+        },
+        {
+          "slug": "hero_meta",
+          "label": "Hero Meta",
+          "type": "string"
+        },
+        {
+          "slug": "hero_line1",
+          "label": "Hero Line 1",
+          "type": "string"
+        },
+        {
+          "slug": "hero_line2",
+          "label": "Hero Line 2",
+          "type": "string"
+        },
+        {
+          "slug": "hero_line_accent",
+          "label": "Hero Line Accent",
+          "type": "string"
+        },
+        {
+          "slug": "hero_pitch",
+          "label": "Hero Pitch",
+          "type": "text"
+        },
+        {
+          "slug": "metrics",
+          "label": "Metrics",
+          "type": "repeater",
+          "validation": {
+            "subFields": [
+              {
+                "slug": "value",
+                "label": "Value",
+                "type": "string"
+              },
+              {
+                "slug": "label",
+                "label": "Label",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "layers",
+          "label": "Stack Layers",
+          "type": "repeater",
+          "validation": {
+            "subFields": [
+              {
+                "slug": "kicker",
+                "label": "Kicker",
+                "type": "string"
+              },
+              {
+                "slug": "badge",
+                "label": "Badge / Tools",
+                "type": "string"
+              },
+              {
+                "slug": "title",
+                "label": "Title",
+                "type": "string"
+              },
+              {
+                "slug": "description",
+                "label": "Description",
+                "type": "text"
+              },
+              {
+                "slug": "note",
+                "label": "Inspector Note",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "manifesto_kicker",
+          "label": "Manifesto Kicker",
+          "type": "string"
+        },
+        {
+          "slug": "manifesto",
+          "label": "Manifesto",
+          "type": "text"
+        },
+        {
+          "slug": "systems_kicker",
+          "label": "Systems Kicker",
+          "type": "string"
+        },
+        {
+          "slug": "systems_title",
+          "label": "Systems Title",
+          "type": "string"
+        },
+        {
+          "slug": "systems_intro",
+          "label": "Systems Intro",
+          "type": "text"
+        },
+        {
+          "slug": "clients_kicker",
+          "label": "Clients Kicker",
+          "type": "string"
+        },
+        {
+          "slug": "clients_title",
+          "label": "Clients Title",
+          "type": "string"
+        },
+        {
+          "slug": "serp_items",
+          "label": "SERP Items",
+          "type": "repeater",
+          "validation": {
+            "subFields": [
+              {
+                "slug": "key",
+                "label": "Key",
+                "type": "string"
+              },
+              {
+                "slug": "button_label",
+                "label": "Button Label",
+                "type": "string"
+              },
+              {
+                "slug": "query",
+                "label": "Query",
+                "type": "string"
+              },
+              {
+                "slug": "url",
+                "label": "URL",
+                "type": "string"
+              },
+              {
+                "slug": "title",
+                "label": "Title",
+                "type": "string"
+              },
+              {
+                "slug": "description",
+                "label": "Description",
+                "type": "text"
+              },
+              {
+                "slug": "note",
+                "label": "Note",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "capabilities_kicker",
+          "label": "Capabilities Kicker",
+          "type": "string"
+        },
+        {
+          "slug": "capabilities_title",
+          "label": "Capabilities Title",
+          "type": "string"
+        },
+        {
+          "slug": "experience_kicker",
+          "label": "Experience Kicker",
+          "type": "string"
+        },
+        {
+          "slug": "experience_title",
+          "label": "Experience Title",
+          "type": "string"
+        },
+        {
+          "slug": "contact_kicker",
+          "label": "Contact Kicker",
+          "type": "string"
+        },
+        {
+          "slug": "contact_title",
+          "label": "Contact Title",
+          "type": "string"
+        },
+        {
+          "slug": "contact_body",
+          "label": "Contact Body",
+          "type": "text"
+        },
+        {
+          "slug": "contact_email",
+          "label": "Contact Email",
+          "type": "string"
+        },
+        {
+          "slug": "contact_whatsapp_url",
+          "label": "WhatsApp URL",
+          "type": "string"
+        },
+        {
+          "slug": "contact_website_url",
+          "label": "Website URL",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "slug": "certificates",
+      "label": "Certificates",
+      "labelSingular": "Certificate",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "issuer",
+          "label": "Issuer",
+          "type": "string"
+        },
+        {
+          "slug": "year",
+          "label": "Year",
+          "type": "string"
+        },
+        {
+          "slug": "body",
+          "label": "Body",
+          "type": "string"
+        },
+        {
+          "slug": "sort_order",
+          "label": "Sort Order",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "slug": "achievements",
+      "label": "Achievements",
+      "labelSingular": "Achievement",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "issuer",
+          "label": "Issuer",
+          "type": "string"
+        },
+        {
+          "slug": "year",
+          "label": "Year",
+          "type": "string"
+        },
+        {
+          "slug": "body",
+          "label": "Body",
+          "type": "string"
+        },
+        {
+          "slug": "sort_order",
+          "label": "Sort Order",
+          "type": "integer"
+        }
+      ]
+    }
+  ],
+  "taxonomies": [
+    {
+      "name": "tag",
+      "label": "Tags",
+      "labelSingular": "Tag",
+      "hierarchical": false,
+      "collections": [
+        "projects"
+      ],
+      "terms": [
+        {
+          "slug": "identity",
+          "label": "Identity"
+        },
+        {
+          "slug": "ui-ux",
+          "label": "UI/UX"
+        },
+        {
+          "slug": "development",
+          "label": "Development"
+        },
+        {
+          "slug": "art-direction",
+          "label": "Art Direction"
+        },
+        {
+          "slug": "packaging",
+          "label": "Packaging"
+        },
+        {
+          "slug": "ecommerce",
+          "label": "E-commerce"
+        },
+        {
+          "slug": "editorial",
+          "label": "Editorial"
+        }
+      ]
+    }
+  ],
+  "menus": [
+    {
+      "name": "primary",
+      "label": "Primary Navigation",
+      "items": [
+        {
+          "type": "custom",
+          "label": "Overview",
+          "url": "#section-overview"
+        },
+        {
+          "type": "custom",
+          "label": "Systems",
+          "url": "#section-systems"
+        },
+        {
+          "type": "custom",
+          "label": "Clients",
+          "url": "#section-clients"
+        },
+        {
+          "type": "custom",
+          "label": "Stack",
+          "url": "#section-capabilities"
+        },
+        {
+          "type": "custom",
+          "label": "Trajectory",
+          "url": "#section-experience"
+        },
+        {
+          "type": "custom",
+          "label": "Contact",
+          "url": "#section-contact"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "pages": [
+      {
+        "id": "about",
+        "slug": "about",
+        "status": "published",
+        "data": {
+          "title": "About",
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "We are a small design studio focused on creating meaningful work for thoughtful clients. Founded in 2020, we've had the privilege of working with brands across technology, culture, and the arts.",
+                  "_key": "k1"
+                }
+              ],
+              "_key": "k0"
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "Our approach is simple: listen carefully, think deeply, and craft with intention. We believe that good design is invisible, it gets out of the way and lets the work speak for itself.",
+                  "_key": "k3"
+                }
+              ],
+              "_key": "k2"
+            },
+            {
+              "_type": "block",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "What we do",
+                  "_key": "k5"
+                }
+              ],
+              "_key": "k4"
+            },
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "We specialize in brand identity, web design, and art direction. Whether you need a complete visual identity or a single website, we bring the same level of care and attention to every project.",
+                  "_key": "k7"
+                }
+              ],
+              "_key": "k6"
+            }
+          ]
+        }
+      }
+    ],
+    "projects": [
+      {
+        "id": "kalibrasi-metrotech",
+        "slug": "kalibrasi-metrotech",
+        "status": "published",
+        "data": {
+          "title": "PT Metrotech Permata Engineering",
+          "client": "kalibrasimetrotech.co.id",
+          "year": "2025",
+          "summary": "KAN ISO/IEC 17025 calibration & TUTSIT laboratory site: 512+ projects delivered, 40+ calibration categories, ranked #1 on Google for kalibrasi tutsit.",
+          "url": "https://kalibrasimetrotech.co.id",
+          "highlight": "#1 Google: kalibrasi tutsit",
+          "status_label": "#1 on Google",
+          "sort_order": 1,
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
+              "alt": "Engineer calibrating precision measurement equipment in a laboratory",
+              "filename": "metrotech.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "A calibration laboratory platform engineered around keyword architecture, JSON-LD structured data and 90+ Core Web Vitals, taking kalibrasimetrotech.co.id to #1 on Google for kalibrasi tutsit with a WhatsApp RFQ funnel.",
+                  "_key": "m1s"
+                }
+              ],
+              "_key": "m1"
+            }
+          ]
+        },
+        "taxonomies": {
+          "tag": [
+            "development"
+          ]
+        }
+      },
+      {
+        "id": "barkas-jaya",
+        "slug": "barkas-jaya",
+        "status": "published",
+        "data": {
+          "title": "Barkas Jaya Solusindo",
+          "client": "barkasjayasolusindo.com",
+          "year": "2025",
+          "summary": "B2B asset buyout platform: a 10-category Material Finder, a 5-photo WhatsApp survey funnel, verified business licenses (NIB/PKP), and Page-1 SEO.",
+          "url": "https://barkasjayasolusindo.com",
+          "highlight": "Page-1 SEO, Material Finder",
+          "status_label": "Page-1 on Google",
+          "sort_order": 2,
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
+              "alt": "Warehouse aisle with industrial materials ready for B2B asset buyout",
+              "filename": "barkas.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "A B2B asset-buyout site for Bandung industry: sellers find their material category in seconds and send a 5-photo WhatsApp survey, while technical SEO carries the business to Page 1.",
+                  "_key": "b1s"
+                }
+              ],
+              "_key": "b1"
+            }
+          ]
+        },
+        "taxonomies": {
+          "tag": [
+            "development"
+          ]
+        }
+      },
+      {
+        "id": "mybgi",
+        "slug": "mybgi",
+        "status": "published",
+        "data": {
+          "title": "MyBGI Field Worker Platform",
+          "client": "MyBGI (Internal)",
+          "year": "2025",
+          "summary": "Internal platform serving 137 field workers: Laravel, Filament and Nginx, shipped in under 2 weeks with older-user-friendly UX and small-server tuning.",
+          "highlight": "137 field workers",
+          "status_label": "Production Active",
+          "sort_order": 3,
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
+              "alt": "Field workers coordinating on a construction site at sunrise",
+              "filename": "mybgi.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "MyBGI coordinates 137 field workers daily. Built with Laravel, Filament and Nginx and shipped in under two weeks, tuned for low-spec servers and older users.",
+                  "_key": "g1s"
+                }
+              ],
+              "_key": "g1"
+            }
+          ]
+        }
+      },
+      {
+        "id": "warungpintar-ai",
+        "slug": "warungpintar-ai",
+        "status": "published",
+        "data": {
+          "title": "WarungPintar.AI",
+          "client": "WarungPintar.AI",
+          "year": "2024",
+          "summary": "AI point of sale with Flutter, Hono and Cloudflare AI. Sales by photo and voice.",
+          "highlight": "AI POS, side project",
+          "status_label": "Side project",
+          "sort_order": 4,
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
+              "alt": "Shop owner completing a sale on a modern point-of-sale terminal",
+              "filename": "warungpintar.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "WarungPintar.AI lets small shops ring up sales from a photo or voice note using Flutter, Hono and Cloudflare AI. The project took 1st Place at LKS 2024.",
+                  "_key": "w1s"
+                }
+              ],
+              "_key": "w1"
+            }
+          ]
+        }
+      }
+    ],
+    "cases": [
+      {
+        "id": "case-01-payment",
+        "slug": "case-01-payment",
+        "status": "published",
+        "data": {
+          "title": "Tamper-Proof Payment Gateway Callbacks",
+          "kicker": "Payment Security",
+          "summary": "Payment webhooks are public URLs. Anyone can POST to them. Every callback is verified with an HMAC-SHA256 signature and processed inside a PostgreSQL row lock, so forged or double-clicked confirmations can never mark an unpaid order as paid.",
+          "metric": "0 Spoofed",
+          "metric_label": "Spoofed callbacks accepted",
+          "pipeline": "Gateway Webhook → HMAC Verify → PostgreSQL Lock",
+          "sort_order": 1,
+          "code": "public function handle(Request $request)\n{\n    $payload   = $request->getContent();\n    $signature = $request->header('X-Signature');\n    $expected  = hash_hmac('sha256', $payload, config('pay.secret'));\n\n    if (! hash_equals($expected, (string) $signature)) {\n        abort(403, 'Invalid signature');\n    }\n\n    $data  = json_decode($payload, true);\n    $order = DB::transaction(function () use ($data) {\n        $order = Order::where('ref', $data['order_id'])\n            ->lockForUpdate()\n            ->firstOrFail();\n\n        if ($order->status === 'paid') {\n            return $order; // duplicate click: safe no-op\n        }\n\n        $order->update(['status' => 'paid', 'paid_at' => now()]);\n        return $order;\n    });\n\n    return response()->json(['received' => true]);\n}"
+        }
+      },
+      {
+        "id": "case-02-marketplace",
+        "slug": "case-02-marketplace",
+        "status": "published",
+        "data": {
+          "title": "Swiss Classified-Ads Marketplace Upgrade",
+          "kicker": "Marketplace Upgrade",
+          "summary": "A production Swiss classified-ads platform moved from Laravel 10 to Laravel 13 in about two weeks: dependency audit first, staged upgrades, then PayPal checkout finalized without dropping live listings or payments.",
+          "metric": "2 Weeks",
+          "metric_label": "Laravel 10 → 13, zero-downtime cutover",
+          "pipeline": "Laravel 10 Legacy → Dependency Audit → Laravel 13 + PayPal",
+          "sort_order": 2,
+          "code": "public function finalize(string $paypalOrderId): Payment\n{\n    $capture = $this->paypal->captureOrder($paypalOrderId);\n\n    return DB::transaction(function () use ($capture) {\n        $payment = Payment::where('provider_ref', $capture->id)\n            ->lockForUpdate()\n            ->firstOrFail();\n\n        if ($payment->status === 'captured') {\n            return $payment; // idempotent retry\n        }\n\n        $payment->update([\n            'status'      => 'captured',\n            'amount'      => $capture->amount,\n            'captured_at' => now(),\n        ]);\n\n        $payment->listing->markAsPaid();\n        return $payment;\n    });\n}"
+        }
+      },
+      {
+        "id": "case-03-erp",
+        "slug": "case-03-erp",
+        "status": "published",
+        "data": {
+          "title": "ERP Module Suite Protected by Pest Tests",
+          "kicker": "ERP & Pest QA",
+          "summary": "Quotations with revision history, budget plans (RAB), contract lifecycle, and progress-billing (termin) invoices for an internal ERP. Every money-moving transition is covered by Pest tests, so a refactor can never silently change what a client owes.",
+          "metric": "Pest QA",
+          "metric_label": "Automated tests on every billing flow",
+          "pipeline": "Quotation & Budget → Contracts → Progress Billing + Pest",
+          "sort_order": 3,
+          "code": "it('issues a termin invoice only once per milestone', function () {\n    $contract = Contract::factory()\n        ->withTerminPlan([30, 40, 30])\n        ->create();\n\n    $first  = app(InvoiceService::class)->issueTermin($contract, 1);\n    $second = app(InvoiceService::class)->issueTermin($contract, 1);\n\n    expect($first->id)->toBe($second->id)\n        ->and($contract->invoices()->count())->toBe(1)\n        ->and($first->amount)->toBe('3000000.00');\n});\n\nit('rejects a termin beyond the contract total', function () {\n    $contract = Contract::factory()->fullyInvoiced()->create();\n\n    app(InvoiceService::class)->issueTermin($contract, 4);\n})->throws(InvalidTerminException::class);"
+        }
+      },
+      {
+        "id": "case-04-platform",
+        "slug": "case-04-platform",
+        "status": "published",
+        "data": {
+          "title": "Reusable API Library, Gov Sync & Face Recognition",
+          "kicker": "Platform & AI",
+          "summary": "One reusable Laravel API library now powers 3+ projects: government-platform sync with retry-safe connectors, plus AWS Rekognition face matching, all answering in under 3 seconds on a small 1GB server.",
+          "metric": "< 3s API",
+          "metric_label": "One SDK, three-plus projects, under 3 seconds",
+          "pipeline": "Reusable API SDK → Gov Platform Sync → Face Recognition",
+          "sort_order": 4,
+          "code": "final class GovSyncConnector\n{\n    public function push(AttendanceBatch $batch): SyncResult\n    {\n        return retry(3, function () use ($batch) {\n            $response = Http::withToken($this->token())\n                ->timeout(10)\n                ->post($this->endpoint . '/attendance', [\n                    'batch_id' => $batch->uuid, // idempotency key\n                    'records'  => $batch->toGovPayload(),\n                ]);\n\n            $response->throw();\n            return SyncResult::accepted($response->json('receipt'));\n        }, 250);\n    }\n}"
+        }
+      }
+    ],
+    "pillars": [
+      {
+        "id": "pillar-backend",
+        "slug": "pillar-backend",
+        "status": "published",
+        "data": {
+          "title": "Backend & Enterprise ERP",
+          "kicker": "Backend",
+          "badge": "HMAC-SHA256 · Pest QA",
+          "body": "Tamper-proof payment callbacks, quotation-to-invoice ERP flows, and reusable API libraries. Verified, locked, and tested before they touch money.",
+          "sort_order": 1
+        }
+      },
+      {
+        "id": "pillar-seo",
+        "slug": "pillar-seo",
+        "status": "published",
+        "data": {
+          "title": "Client Web & #1 Google SEO",
+          "kicker": "Client Web & SEO",
+          "badge": "#1 kalibrasi tutsit",
+          "body": "B2B sites engineered around keyword architecture, JSON-LD, and 90+ Core Web Vitals. Built to be found first and to turn searches into WhatsApp enquiries.",
+          "sort_order": 2
+        }
+      },
+      {
+        "id": "pillar-mobile",
+        "slug": "pillar-mobile",
+        "status": "published",
+        "data": {
+          "title": "Mobile AI & Biometrics",
+          "kicker": "Mobile & AI",
+          "badge": "GIS · AWS Rekognition",
+          "body": "React Native and Flutter apps with geofencing, face recognition, and AI input (photo/voice) that field teams actually enjoy using.",
+          "sort_order": 3
+        }
+      },
+      {
+        "id": "pillar-infra",
+        "slug": "pillar-infra",
+        "status": "published",
+        "data": {
+          "title": "Infrastructure & Tuning",
+          "kicker": "Infrastructure",
+          "badge": "Sub-3s on 1GB server",
+          "body": "Nginx, PHP-FPM, Octane, and NestJS tuned to answer in under 3 seconds on a 1GB server. Lean servers, production manners.",
+          "sort_order": 4
+        }
+      }
+    ],
+    "experiences": [
+      {
+        "id": "exp-maxximum",
+        "slug": "exp-maxximum",
+        "status": "published",
+        "data": {
+          "title": "PT Maxximum Digital Indonesia (Artristik Studio)",
+          "meta": "Software Engineer · Sep 2025 – Present · Bandung",
+          "sort_order": 1,
+          "points": [
+            {
+              "title": "Payments, Marketplace & ERP",
+              "body": "Payment flows with HMAC-verified gateway callbacks; a Swiss marketplace upgraded from Laravel 10 to 13 with PayPal; and Pest-tested ERP modules covering quotations, budget plans, contracts, and progress billing."
+            },
+            {
+              "title": "Platform & AI",
+              "body": "A reusable API library across 3+ projects, government-platform sync, an inspection-compliance system, and AWS Rekognition face recognition."
+            }
+          ]
+        }
+      },
+      {
+        "id": "exp-bara",
+        "slug": "exp-bara",
+        "status": "published",
+        "data": {
+          "title": "PT Bara Multi Prima Teknovasi",
+          "meta": "Software Engineering Intern · Nov 2024 – Jun 2025",
+          "sort_order": 2,
+          "points": [
+            {
+              "title": "GIS Attendance Platform",
+              "body": "PostgreSQL + Laravel API + React Native GIS geofencing attendance for field teams."
+            },
+            {
+              "title": "Lean Services & App Redesign",
+              "body": "NestJS and GraphQL services answering in under 3 seconds on a 1GB server, and a Capacitor app redesign for field usability."
+            }
+          ]
+        }
+      },
+      {
+        "id": "exp-smkn11",
+        "slug": "exp-smkn11",
+        "status": "published",
+        "data": {
+          "title": "SMKN 11 Bandung",
+          "meta": "Top-Ranked Graduate · GPA 89.01 · 2024 – 2025",
+          "sort_order": 3,
+          "points": [
+            {
+              "title": "Top-Ranked Graduate",
+              "body": "Software Engineering major, class of 2025, graduated with a GPA of 89.01 out of 100."
+            }
+          ]
+        }
+      }
+    ],
+    "homepage": [
+      {
+        "id": "home",
+        "slug": "home",
+        "status": "published",
+        "data": {
+          "hero_eyebrow": "End-to-End Fullstack Engineer · Cimahi / Bandung",
+          "hero_meta": "Web Apps · ERP & Payment APIs · Mobile & AI · #1 Google SEO",
+          "hero_line1": "I build complete",
+          "hero_line2": "digital products from",
+          "hero_line_accent": "database to #1 SEO.",
+          "hero_pitch": "I'm Hasban Fardani, a full-stack engineer in Bandung. I take products from database to launch: payment backends that cannot be spoofed, ERP systems guarded by automated tests, mobile apps with AI features, and client websites that rank #1 on Google. One engineer, the whole lifecycle, nothing lost in hand-offs.",
+          "metrics": [
+            {
+              "value": "#1 Google",
+              "label": "Google ranking"
+            },
+            {
+              "value": "1,000+",
+              "label": "Catalog & project scale"
+            },
+            {
+              "value": "0 Spoofs",
+              "label": "Spoofed payments"
+            },
+            {
+              "value": "1st Place",
+              "label": "LKS Web Tech 2024"
+            }
+          ],
+          "layers": [
+            {
+              "kicker": "Interface layer",
+              "badge": "React · Vue · Livewire · Tailwind & JSON-LD",
+              "title": "Frontend & #1 Google SEO",
+              "description": "Interfaces built to convert and rank, with structured data that helped client sites reach #1 on Google.",
+              "note": "Semantic frontends in React, Vue, or Livewire, styled with Tailwind and marked up with JSON-LD, the combination that took client sites to #1 on Google."
+            },
+            {
+              "kicker": "Backend layer",
+              "badge": "Laravel 10–13 · Filament · Octane & NestJS · HMAC-SHA256",
+              "title": "Backend ERP & Payment API",
+              "description": "Business logic that cannot fail quietly: ERP suites and payment callbacks verified with HMAC-SHA256.",
+              "note": "ERP suites in Laravel and Filament, Octane and NestJS services, and payment callbacks verified with HMAC-SHA256, so spoofed webhooks never touch the ledger."
+            },
+            {
+              "kicker": "Mobile layer",
+              "badge": "React Native · Flutter · Hono & AWS Rekognition · GIS + AI",
+              "title": "Mobile AI & Biometrics",
+              "description": "Field-ready mobile with GIS geofencing, edge APIs and face matching for real-world attendance.",
+              "note": "React Native and Flutter apps with GIS geofencing, Hono edge APIs, and AWS Rekognition face matching for attendance and identity in the field."
+            },
+            {
+              "kicker": "Data layer",
+              "badge": "PostgreSQL Row Locks · Pest PHP · Docker & Nginx · Under 3s on 1GB",
+              "title": "Data Pest QA & DevOps",
+              "description": "Proof before production: row locks, Pest suites, and Docker and Nginx tuning under 3 seconds on a 1GB server.",
+              "note": "Normalized PostgreSQL schemas with row locks, Pest suites guarding ERP money flows, and Docker and Nginx tuning that answers in under 3 seconds on a 1GB server."
+            }
+          ],
+          "manifesto_kicker": "Engineering Philosophy",
+          "manifesto": "Most developers only touch one slice of a product. I take ownership of the whole lifecycle: designing the database, protecting payment webhooks against spoofing, covering money flows with automated tests, and ranking client websites #1 on Google for the keywords their buyers actually search, like kalibrasi tutsit.",
+          "systems_kicker": "Enterprise and backend systems",
+          "systems_title": "Production engineering, delivered on-site",
+          "systems_intro": "A selection of production systems work. Client names are withheld, but the architecture, security decisions, and test coverage below are real.",
+          "clients_kicker": "Live client platforms and search results",
+          "clients_title": "Client websites rank #1 on Google, plus independent builds",
+          "serp_items": [
+            {
+              "key": "metrotech",
+              "button_label": "kalibrasi tutsit: Metrotech",
+              "query": "kalibrasi tutsit",
+              "url": "https://kalibrasimetrotech.co.id",
+              "title": "PT Metrotech Permata Engineering, Jasa Kalibrasi TUTSIT & Alat Ukur KAN ISO/IEC 17025",
+              "description": "Jasa kalibrasi TUTSIT dan alat ukur terakreditasi KAN ISO/IEC 17025. Laboratorium kalibrasi untuk industri manufaktur, otomotif, dan laboratorium uji.",
+              "note": "How it got there: keyword architecture, structured data, fast Core Web Vitals, a 40-instrument catalog, and direct WhatsApp enquiries."
+            },
+            {
+              "key": "barkas",
+              "button_label": "Barkas Jaya Solusindo",
+              "query": "barkas jaya solusindo",
+              "url": "https://barkasjayasolusindo.com",
+              "title": "Barkas Jaya Solusindo, Akuisisi Aset, Bongkaran & Material B2B Bandung",
+              "description": "Jasa akuisisi aset, bongkaran gedung, dan material bekas industri untuk B2B di Bandung. Survey foto via WhatsApp, penawaran cepat, legalitas NIB/PKP.",
+              "note": "How it got there: a 10-category Material Finder, photo surveys over WhatsApp, and local search optimisation."
+            }
+          ],
+          "capabilities_kicker": "Full-spectrum capabilities",
+          "capabilities_title": "Every layer of a modern product, designed and shipped by one engineer.",
+          "experience_kicker": "Career and credentials",
+          "experience_title": "Two engineering roles in Bandung, plus the school years that started it all.",
+          "contact_kicker": "Availability for roles and projects",
+          "contact_title": "Need a system built or a site ranked #1?",
+          "contact_body": "Based in Cimahi / Bandung. Available on-site in Bandung, remote, and for end-to-end projects: database, backend, mobile, and the SEO that gets the product found.",
+          "contact_email": "hasbanfardani@gmail.com",
+          "contact_whatsapp_url": "https://wa.me/6285183200603",
+          "contact_website_url": "https://hasban.my.id"
+        }
+      }
+    ],
+    "certificates": [
+      {
+        "id": "cert-lsp-2025",
+        "slug": "lsp-highly-competent-2025",
+        "status": "published",
+        "data": {
+          "title": "Highly Competent, National Competency Certification (LSP)",
+          "issuer": "LSP",
+          "year": "2025",
+          "body": "Certified Highly Competent across 18 units covering data structures, SQL, and structured programming.",
+          "sort_order": 1
+        }
+      }
+    ],
+    "achievements": [
+      {
+        "id": "ach-lks-2024",
+        "slug": "lks-web-tech-2024",
+        "status": "published",
+        "data": {
+          "title": "1st Place, LKS Web Technologies",
+          "issuer": "Bandung City",
+          "year": "2024",
+          "body": "Designed and shipped a secure working web app under timed, offline conditions.",
+          "sort_order": 1
+        }
+      },
+      {
+        "id": "ach-excellence-2025",
+        "slug": "student-excellence-2025",
+        "status": "published",
+        "data": {
+          "title": "Student Excellence Award",
+          "issuer": "SMKN 11 Bandung",
+          "year": "2025",
+          "body": "Recognised as an outstanding student in Software Engineering.",
+          "sort_order": 2
+        }
+      },
+      {
+        "id": "ach-codewars",
+        "slug": "codewars-5-kyu",
+        "status": "published",
+        "data": {
+          "title": "Codewars 5 kyu",
+          "issuer": "Codewars",
+          "year": "2025",
+          "body": "90 kata completed in algorithmic problem solving.",
+          "sort_order": 3
+        }
+      }
+    ]
+  }
 }

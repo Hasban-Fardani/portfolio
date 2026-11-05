@@ -1,5 +1,5 @@
-import type { APIRoute } from "astro";
 import { env as cfEnv } from "cloudflare:workers";
+import type { APIRoute } from "astro";
 
 export const prerender = false;
 
@@ -29,7 +29,11 @@ function runtimeEnv(): Record<string, string | undefined> {
 	try {
 		const e = cfEnv as unknown as Record<string, string | undefined>;
 		if (e && (e.OPENROUTER_API_KEY || e.OPENROUTER_MODEL)) return e;
-		if (e) return { ...e, ...(import.meta.env as Record<string, string | undefined>) };
+		if (e)
+			return {
+				...e,
+				...(import.meta.env as Record<string, string | undefined>),
+			};
 	} catch {
 		/* fall through to import.meta.env */
 	}
@@ -59,37 +63,54 @@ export const POST: APIRoute = async ({ request }) => {
 	const timer = setTimeout(() => controller.abort(), 20_000);
 	try {
 		const origin = request.headers.get("origin") || new URL(request.url).origin;
-		const upstream = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-			method: "POST",
-			signal: controller.signal,
-			headers: {
-				Authorization: `Bearer ${key}`,
-				"Content-Type": "application/json",
-				"HTTP-Referer": origin,
-				"X-Title": "Hasban Portfolio",
+		const upstream = await fetch(
+			"https://openrouter.ai/api/v1/chat/completions",
+			{
+				method: "POST",
+				signal: controller.signal,
+				headers: {
+					Authorization: `Bearer ${key}`,
+					"Content-Type": "application/json",
+					"HTTP-Referer": origin,
+					"X-Title": "Hasban Portfolio",
+				},
+				body: JSON.stringify({
+					model,
+					messages: [
+						{ role: "system", content: SYSTEM_PROMPT },
+						{ role: "user", content: question },
+					],
+					max_tokens: 600,
+					temperature: 0.4,
+				}),
 			},
-			body: JSON.stringify({
-				model,
-				messages: [
-					{ role: "system", content: SYSTEM_PROMPT },
-					{ role: "user", content: question },
-				],
-				max_tokens: 600,
-				temperature: 0.4,
-			}),
-		});
-		if (!upstream.ok) return json({ error: "AI service unavailable. Please try again shortly." }, 502);
+		);
+		if (!upstream.ok)
+			return json(
+				{ error: "AI service unavailable. Please try again shortly." },
+				502,
+			);
 		const data = (await upstream.json()) as {
 			choices?: Array<{ message?: { content?: string } }>;
 		};
 		const answer = data.choices?.[0]?.message?.content?.trim();
-		if (!answer) return json({ error: "AI returned an empty answer. Please rephrase your question." }, 502);
+		if (!answer)
+			return json(
+				{
+					error: "AI returned an empty answer. Please rephrase your question.",
+				},
+				502,
+			);
 		return json({ answer }, 200);
 	} catch {
-		return json({ error: "AI service unavailable. Please try again shortly." }, 502);
+		return json(
+			{ error: "AI service unavailable. Please try again shortly." },
+			502,
+		);
 	} finally {
 		clearTimeout(timer);
 	}
 };
 
-export const GET: APIRoute = async () => json({ error: "Method not allowed. Use POST." }, 405);
+export const GET: APIRoute = async () =>
+	json({ error: "Method not allowed. Use POST." }, 405);

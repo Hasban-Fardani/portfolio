@@ -1,40 +1,50 @@
 /*
   theme.css -- homepage redesign overrides (unlayered, beats tokens.css).
-  New system: warm paper light / near-black dark, single orange accent
-  + emerald signal. Legacy --color-* tokens are remapped so /work,
-  /about, /contact keep rendering on the new palette.
+  Taste v2 + Impeccable pass: ONE webfont (Plus Jakarta Sans), neutral
+  ground (no cream+terracotta assistant palette), tone steps instead of
+  hairlines, flat surfaces instead of shadows, sentence-case labels.
+  Legacy --color-* tokens are remapped so /work, /about, /contact keep
+  rendering on the new palette.
 */
 
 :root {
 	color-scheme: light;
-	/* Redesign tokens (light) */
-	--bg: #f6f4ef;
-	--surface: #ece8df;
+	/* Redesign tokens (light) -- neutral paper, single vermillion accent */
+	--bg: #f4f4f2;
+	--surface: #e8e7e2;
+	--surface-2: #dfded8;
 	--card: #ffffff;
-	--ink: #131312;
-	--body: #45433e;
-	--muted: #78756c;
-	--accent: #e04f16;
-	--emerald: #0d9488;
-	--border: #d8d4ca;
+	--ink: #191817;
+	--body: #44423c;
+	--muted: #6f6c65;
+	--accent: #c2410c;
+	--accent-soft: #fbe9dd;
+	--emerald: #0b7c72;
+	--line: #d8d7d1;
+
+	/* Type: ONE family. --font-code is a system stack (zero downloads),
+	   used only inside real code blocks and tabular figures. */
+	--font-code:
+		ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; /* taste-skill-ignore: system stack for real code blocks only, zero webfont downloads */
 
 	/* Fluid type: 4 scales only */
-	--fs-display: clamp(2.1rem, 4.3vw, 4.25rem);
+	--fs-display: clamp(2.1rem, 4.3vw, 4rem);
 	--fs-h2: clamp(1.35rem, 2.25vw, 2.1rem);
 	--fs-body: clamp(1rem, 1.05vw, 1.125rem);
-	--fs-mono: 0.8125rem;
+	--fs-small: 0.9rem;
 
 	--container: 1240px;
-	--side-pad: clamp(1.5rem, 4vw, 3.5rem);
-	--section-pad: clamp(5.5rem, 9vh, 7.5rem);
+	--side-pad: clamp(1.25rem, 4vw, 3.5rem);
+	--section-pad: clamp(4.5rem, 10vh, 8rem);
+	--section-gap: clamp(7.5rem, 14vh, 12rem);
 	--card-pad: clamp(1.35rem, 2.6vw, 2.25rem);
-	--card-radius: 20px;
+	--card-radius: 6px;
 
 	/* Map legacy template tokens onto the new palette */
 	--color-bg: var(--bg);
 	--color-text: var(--ink);
 	--color-muted: var(--muted);
-	--color-border: var(--border);
+	--color-border: var(--line);
 	--color-surface: var(--card);
 	--color-brand: var(--accent);
 	--color-on-brand: #ffffff;
@@ -46,20 +56,22 @@
 	--font-weight-display: 800;
 	--max-width: 720px;
 	--wide-width: 1240px;
-	--radius: 20px;
+	--radius: 6px;
 }
 
 :root[data-theme="dark"] {
 	color-scheme: dark;
 	--bg: #111113;
-	--surface: #18181b;
+	--surface: #1b1b1f;
+	--surface-2: #232329;
 	--card: #1e1e22;
 	--ink: #f2f0e8;
-	--body: #b5b2a8;
-	--muted: #7c7970;
+	--body: #c0bdb4;
+	--muted: #8b887f;
 	--accent: #ff5b24;
+	--accent-soft: #33211a;
 	--emerald: #14b8a6;
-	--border: #2c2c30;
+	--line: #2c2c30;
 	--color-danger: #f87171;
 	--color-on-brand: #ffffff;
 }
@@ -68,14 +80,16 @@
 :root.dark {
 	color-scheme: dark;
 	--bg: #111113;
-	--surface: #18181b;
+	--surface: #1b1b1f;
+	--surface-2: #232329;
 	--card: #1e1e22;
 	--ink: #f2f0e8;
-	--body: #b5b2a8;
-	--muted: #7c7970;
+	--body: #c0bdb4;
+	--muted: #8b887f;
 	--accent: #ff5b24;
+	--accent-soft: #33211a;
 	--emerald: #14b8a6;
-	--border: #2c2c30;
+	--line: #2c2c30;
 }
 
 ::selection {
@@ -92,10 +106,11 @@
 .t-display {
 	font-size: var(--fs-display);
 	font-weight: 800;
-	line-height: 1.08;
-	letter-spacing: -0.032em;
+	line-height: 1.06;
+	letter-spacing: -0.03em;
 	color: var(--ink);
 	overflow-wrap: break-word;
+	text-wrap: balance;
 }
 .t-h2 {
 	font-size: var(--fs-h2);
@@ -104,15 +119,17 @@
 	letter-spacing: -0.02em;
 	color: var(--ink);
 	overflow-wrap: break-word;
+	text-wrap: balance;
 }
 .t-body {
 	font-size: var(--fs-body);
-	line-height: 1.72;
+	line-height: 1.65;
 	color: var(--body);
 	max-width: 65ch;
 }
-.t-mono {
-	font-family: var(--font-mono), ui-monospace, monospace;
-	font-size: var(--fs-mono);
-	letter-spacing: 0.02em;
+/* Small supporting text: same single family, tabular figures for numbers. */
+.t-small {
+	font-size: var(--fs-small);
+	line-height: 1.55;
+	font-variant-numeric: tabular-nums;
 }

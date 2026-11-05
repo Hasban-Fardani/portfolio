@@ -15,19 +15,19 @@
 		{
 			"binding": "DB",
 			"database_name": "my-portfolio-site",
-			"database_id": "d357c0cf-3717-4df7-84fa-ac7c7915e07c",
-		},
+			"database_id": "d357c0cf-3717-4df7-84fa-ac7c7915e07c"
+		}
 	],
 	"r2_buckets": [
 		{
 			"binding": "MEDIA",
-			"bucket_name": "my-portfolio-media",
-		},
+			"bucket_name": "my-portfolio-media"
+		}
 	],
 	// Sandboxed plugins require Worker Loader, available on Workers paid plans. Uncomment to enable:
 	// "worker_loaders": [{ "binding": "LOADER" }],
 	// General maintenance cron trigger
 	"triggers": {
-		"crons": ["* * * * *"],
-	},
+		"crons": ["* * * * *"]
+	}
 }
