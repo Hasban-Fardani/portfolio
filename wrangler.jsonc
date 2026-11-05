@@ -12,6 +12,7 @@
 		{
 			"binding": "DB",
 			"database_name": "my-portfolio-site",
+			"database_id": "d357c0cf-3717-4df7-84fa-ac7c7915e07c",
 		},
 	],
 	"r2_buckets": [
