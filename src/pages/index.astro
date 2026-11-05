@@ -453,14 +453,16 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 				backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
 				transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 			}
-			.pill-nav.scrolled { width: min(980px, 94vw); }
+			.pill-nav.scrolled { width: min(1020px, 94vw); }
 			.brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--ink); font-weight: 800; white-space: nowrap; }
 			.brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: none; }
 			.brand-role { font-weight: 500; color: var(--muted); display: none; }
-			.brand-loc { color: var(--muted); transition: opacity 0.3s ease; display: none; }
-			.pill-nav.scrolled .brand-loc { opacity: 0; }
+			.brand-loc { color: var(--muted); display: none; }
 			@media (min-width: 1280px) { .brand-role { display: inline; } }
-			@media (min-width: 1100px) { .brand-loc { display: inline; } }
+			@media (min-width: 1100px) {
+				.brand-loc { display: inline-block; max-width: 220px; overflow: hidden; white-space: nowrap; transition: opacity 0.3s ease, max-width 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+				.pill-nav.scrolled .brand-loc { opacity: 0; max-width: 0; }
+			}
 			.nav-links {
 				position: relative; display: flex; align-items: center; gap: 0.15rem;
 				flex: 1 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: none;
@@ -473,13 +475,14 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			.nav-link {
 				position: relative; z-index: 1; padding: 0.45rem 0.8rem; border-radius: 999px;
 				text-decoration: none; color: var(--body); font-size: 0.9rem; font-weight: 600; white-space: nowrap;
-				transition: color 0.25s ease; flex: none;
+				transition: color 0.25s ease, padding 0.3s ease, font-size 0.3s ease; flex: none;
 			}
 			.nav-label { position: relative; z-index: 1; }
 			.nav-link.is-active { color: var(--bg); }
 			.nav-link:hover { color: var(--ink); }
 			.nav-link.is-active:hover { color: var(--bg); }
-			@media (max-width: 1150px) { .nav-link { padding: 0.45rem 0.6rem; font-size: 0.85rem; } }
+			@media (max-width: 1280px) { .nav-link { padding: 0.45rem 0.6rem; font-size: 0.85rem; } }
+			.pill-nav.scrolled .nav-link { padding: 0.45rem 0.6rem; font-size: 0.85rem; }
 			.nav-actions { display: flex; align-items: center; gap: 0.5rem; flex: none; }
 			.ask-btn {
 				display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer;
@@ -519,12 +522,14 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			}
 			.m-link:hover { background: var(--surface); color: var(--ink); }
 			.m-link.is-active { background: var(--surface); color: var(--ink); }
-			@media (max-width: 900px) {
+			@media (max-width: 1150px) {
 				.nav-links { display: none; }
 				.burger { display: inline-flex; }
+			}
+			@media (max-width: 900px) {
 				.stack-card { position: static; }
 			}
-			@media (min-width: 901px) { .mobile-menu { display: none; } }
+			@media (min-width: 1151px) { .mobile-menu { display: none; } }
 			@media (max-width: 560px) {
 				.pill-nav { gap: 0.5rem; padding: 0 0.5rem 0 0.9rem; }
 				#themeLabel { display: none; }
@@ -811,7 +816,7 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			document.addEventListener("click", (e) => {
 				if (mobileMenu && !mobileMenu.hidden && nav && !nav.contains(e.target)) setMenu(false);
 			});
-			window.matchMedia("(min-width: 901px)").addEventListener("change", (e) => {
+			window.matchMedia("(min-width: 1151px)").addEventListener("change", (e) => {
 				if (!e.matches) return;
 				setMenu(false);
 				const cur = navLinks.find((l) => l.classList.contains("is-active"));
