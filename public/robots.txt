@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /_emdash/
-Disallow: /api/
-
-Sitemap: https://hasban.my.id/sitemap-index.xml
