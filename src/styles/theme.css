@@ -1,0 +1,113 @@
+/*
+  theme.css -- homepage redesign overrides (unlayered, beats tokens.css).
+  New system: warm paper light / near-black dark, single orange accent
+  + emerald signal. Legacy --color-* tokens are remapped so /work,
+  /about, /contact keep rendering on the new palette.
+*/
+
+:root {
+	/* Redesign tokens (light) */
+	--bg: #f6f4ef;
+	--surface: #ece8df;
+	--card: #ffffff;
+	--ink: #131312;
+	--body: #45433e;
+	--muted: #78756c;
+	--accent: #e04f16;
+	--emerald: #0d9488;
+	--border: #d8d4ca;
+
+	/* Fluid type: 4 scales only */
+	--fs-display: clamp(2.1rem, 4.3vw, 4.25rem);
+	--fs-h2: clamp(1.35rem, 2.25vw, 2.1rem);
+	--fs-body: clamp(1rem, 1.05vw, 1.125rem);
+	--fs-mono: 0.8125rem;
+
+	--container: 1240px;
+	--side-pad: clamp(1.5rem, 4vw, 3.5rem);
+	--section-pad: clamp(5.5rem, 9vh, 7.5rem);
+	--card-pad: clamp(1.35rem, 2.6vw, 2.25rem);
+	--card-radius: 20px;
+
+	/* Map legacy template tokens onto the new palette */
+	--color-bg: var(--bg);
+	--color-text: var(--ink);
+	--color-muted: var(--muted);
+	--color-border: var(--border);
+	--color-surface: var(--card);
+	--color-brand: var(--accent);
+	--color-on-brand: #ffffff;
+	--color-brand-ring: color-mix(in srgb, var(--accent) 14%, transparent);
+	--color-danger: #dc2626;
+
+	--font-body: var(--font-heading), system-ui, -apple-system, sans-serif;
+	--font-weight-heading: 700;
+	--font-weight-display: 800;
+	--max-width: 720px;
+	--wide-width: 1240px;
+	--radius: 20px;
+}
+
+:root[data-theme="dark"] {
+	--bg: #111113;
+	--surface: #18181b;
+	--card: #1e1e22;
+	--ink: #f2f0e8;
+	--body: #b5b2a8;
+	--muted: #7c7970;
+	--accent: #ff5b24;
+	--emerald: #14b8a6;
+	--border: #2c2c30;
+	--color-danger: #f87171;
+	--color-on-brand: #ffffff;
+}
+
+/* Base.astro pins scheme via .light/.dark classes; keep new tokens in sync. */
+:root.dark {
+	--bg: #111113;
+	--surface: #18181b;
+	--card: #1e1e22;
+	--ink: #f2f0e8;
+	--body: #b5b2a8;
+	--muted: #7c7970;
+	--accent: #ff5b24;
+	--emerald: #14b8a6;
+	--border: #2c2c30;
+}
+
+::selection {
+	background: var(--accent);
+	color: #fff;
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+.t-display {
+	font-size: var(--fs-display);
+	font-weight: 800;
+	line-height: 1.08;
+	letter-spacing: -0.032em;
+	color: var(--ink);
+}
+.t-h2 {
+	font-size: var(--fs-h2);
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: var(--ink);
+}
+.t-body {
+	font-size: var(--fs-body);
+	line-height: 1.72;
+	color: var(--body);
+	max-width: 65ch;
+}
+.t-mono {
+	font-family: var(--font-mono), ui-monospace, monospace;
+	font-size: var(--fs-mono);
+	letter-spacing: 0.02em;
+}
