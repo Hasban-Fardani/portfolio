@@ -864,6 +864,158 @@
             }
           ]
         }
+      },
+      {
+        "id": "kalibrasi-metrotech-id",
+        "slug": "kalibrasi-metrotech-id",
+        "status": "published",
+        "data": {
+          "title": "PT Metrotech Permata Engineering",
+          "client": "kalibrasimetrotech.co.id",
+          "year": "2025",
+          "summary": "Situs laboratorium kalibrasi KAN ISO/IEC 17025 & TUTSIT: 512+ proyek terkirim, 40+ kategori kalibrasi, ranking #1 Google untuk kalibrasi tutsit.",
+          "url": "https://kalibrasimetrotech.co.id",
+          "highlight": "#1 Google: kalibrasi tutsit",
+          "status_label": "#1 on Google",
+          "sort_order": 1,
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
+              "alt": "Engineer calibrating precision measurement equipment in a laboratory",
+              "filename": "metrotech.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "A calibration laboratory platform engineered around keyword architecture, JSON-LD structured data and 90+ Core Web Vitals, taking kalibrasimetrotech.co.id to #1 on Google for kalibrasi tutsit with a WhatsApp RFQ funnel.",
+                  "_key": "m1s"
+                }
+              ],
+              "_key": "m1"
+            }
+          ]
+        },
+        "taxonomies": {
+          "tag": [
+            "development"
+          ]
+        }
+      },
+      {
+        "id": "barkas-jaya-id",
+        "slug": "barkas-jaya-id",
+        "status": "published",
+        "data": {
+          "title": "Barkas Jaya Solusindo",
+          "client": "barkasjayasolusindo.com",
+          "year": "2025",
+          "summary": "Platform buyout aset B2B: Material Finder 10 kategori, funnel survei WhatsApp 5 foto, lisensi bisnis terverifikasi (NIB/PKP), dan SEO Halaman-1.",
+          "url": "https://barkasjayasolusindo.com",
+          "highlight": "SEO Halaman-1, Material Finder",
+          "status_label": "Halaman-1 Google",
+          "sort_order": 2,
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
+              "alt": "Warehouse aisle with industrial materials ready for B2B asset buyout",
+              "filename": "barkas.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "A B2B asset-buyout site for Bandung industry: sellers find their material category in seconds and send a 5-photo WhatsApp survey, while technical SEO carries the business to Page 1.",
+                  "_key": "b1s"
+                }
+              ],
+              "_key": "b1"
+            }
+          ]
+        },
+        "taxonomies": {
+          "tag": [
+            "development"
+          ]
+        }
+      },
+      {
+        "id": "mybgi-id",
+        "slug": "mybgi-id",
+        "status": "published",
+        "data": {
+          "title": "MyBGI Field Worker Platform",
+          "client": "MyBGI (Internal)",
+          "year": "2025",
+          "summary": "Platform internal yang melayani 137 pekerja lapangan: Laravel, Filament, dan Nginx, rilis di bawah 2 minggu dengan UX ramah pengguna senior dan tuning server kecil.",
+          "highlight": "137 pekerja lapangan",
+          "status_label": "Aktif Produksi",
+          "sort_order": 3,
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
+              "alt": "Field workers coordinating on a construction site at sunrise",
+              "filename": "mybgi.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "MyBGI coordinates 137 field workers daily. Built with Laravel, Filament and Nginx and shipped in under two weeks, tuned for low-spec servers and older users.",
+                  "_key": "g1s"
+                }
+              ],
+              "_key": "g1"
+            }
+          ]
+        }
+      },
+      {
+        "id": "warungpintar-ai-id",
+        "slug": "warungpintar-ai-id",
+        "status": "published",
+        "data": {
+          "title": "WarungPintar.AI",
+          "client": "WarungPintar.AI",
+          "year": "2024",
+          "summary": "Kasir AI dengan Flutter, Hono, dan Cloudflare AI. Jualan lewat foto dan suara.",
+          "highlight": "Kasir AI, side project",
+          "status_label": "Side project",
+          "sort_order": 4,
+          "featured_image": {
+            "$media": {
+              "url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
+              "alt": "Shop owner completing a sale on a modern point-of-sale terminal",
+              "filename": "warungpintar.jpg"
+            }
+          },
+          "content": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "text": "WarungPintar.AI lets small shops ring up sales from a photo or voice note using Flutter, Hono and Cloudflare AI. The project took 1st Place at LKS 2024.",
+                  "_key": "w1s"
+                }
+              ],
+              "_key": "w1"
+            }
+          ]
+        }
       }
     ],
     "cases": [
@@ -926,6 +1078,66 @@
           "sort_order": 4,
           "code": "final class GovSyncConnector\n{\n    public function push(AttendanceBatch $batch): SyncResult\n    {\n        return retry(3, function () use ($batch) {\n            $response = Http::withToken($this->token())\n                ->timeout(10)\n                ->post($this->endpoint . '/attendance', [\n                    'batch_id' => $batch->uuid, // idempotency key\n                    'records'  => $batch->toGovPayload(),\n                ]);\n\n            $response->throw();\n            return SyncResult::accepted($response->json('receipt'));\n        }, 250);\n    }\n}"
         }
+      },
+      {
+        "id": "case-01-payment-id",
+        "slug": "case-01-payment-id",
+        "status": "published",
+        "data": {
+          "title": "Callback Gateway Pembayaran Anti-Palsu",
+          "kicker": "Keamanan Pembayaran",
+          "summary": "Webhook pembayaran adalah URL publik. Siapa pun bisa POST ke sana. Setiap callback diverifikasi dengan tanda tangan HMAC-SHA256 dan diproses di dalam row lock PostgreSQL, sehingga konfirmasi palsu atau klik-ganda tak pernah bisa menandai order.",
+          "metric": "0 Lolos",
+          "metric_label": "Callback palsu yang lolos",
+          "pipeline": "Webhook Gateway → Verifikasi HMAC → Kunci PostgreSQL",
+          "sort_order": 1,
+          "code": "public function handle(Request $request)\n{\n    $payload   = $request->getContent();\n    $signature = $request->header('X-Signature');\n    $expected  = hash_hmac('sha256', $payload, config('pay.secret'));\n\n    if (! hash_equals($expected, (string) $signature)) {\n        abort(403, 'Invalid signature');\n    }\n\n    $data  = json_decode($payload, true);\n    $order = DB::transaction(function () use ($data) {\n        $order = Order::where('ref', $data['order_id'])\n            ->lockForUpdate()\n            ->firstOrFail();\n\n        if ($order->status === 'paid') {\n            return $order; // duplicate click: safe no-op\n        }\n\n        $order->update(['status' => 'paid', 'paid_at' => now()]);\n        return $order;\n    });\n\n    return response()->json(['received' => true]);\n}"
+        }
+      },
+      {
+        "id": "case-02-marketplace-id",
+        "slug": "case-02-marketplace-id",
+        "status": "published",
+        "data": {
+          "title": "Upgrade Marketplace Iklan-Baris Swiss",
+          "kicker": "Upgrade Marketplace",
+          "summary": "Platform iklan-baris Swiss yang live pindah dari Laravel 10 ke Laravel 13 dalam sekitar dua minggu: audit dependensi dulu, upgrade bertahap, lalu checkout PayPal difinalisasi tanpa menjatuhkan listing atau pembayaran yang live.",
+          "metric": "2 Minggu",
+          "metric_label": "Laravel 10 ke 13, cutover tanpa downtime",
+          "pipeline": "Laravel 10 Legacy → Audit Dependensi → Laravel 13 + PayPal",
+          "sort_order": 2,
+          "code": "public function finalize(string $paypalOrderId): Payment\n{\n    $capture = $this->paypal->captureOrder($paypalOrderId);\n\n    return DB::transaction(function () use ($capture) {\n        $payment = Payment::where('provider_ref', $capture->id)\n            ->lockForUpdate()\n            ->firstOrFail();\n\n        if ($payment->status === 'captured') {\n            return $payment; // idempotent retry\n        }\n\n        $payment->update([\n            'status'      => 'captured',\n            'amount'      => $capture->amount,\n            'captured_at' => now(),\n        ]);\n\n        $payment->listing->markAsPaid();\n        return $payment;\n    });\n}"
+        }
+      },
+      {
+        "id": "case-03-erp-id",
+        "slug": "case-03-erp-id",
+        "status": "published",
+        "data": {
+          "title": "Suite Modul ERP yang Dilindungi Pest Test",
+          "kicker": "ERP & QA Pest",
+          "summary": "Quotation dengan riwayat revisi, rencana budget (RAB), siklus kontrak, dan invoice progress-billing (termin) untuk ERP internal. Setiap transisi yang menggerakkan uang ditutup Pest test, sehingga refactor tak pernah bisa diam-diam mengubah tagihan klien.",
+          "metric": "QA Pest",
+          "metric_label": "Automated test di setiap alur billing",
+          "pipeline": "Quotation & Budget → Kontrak → Progress Billing + Pest",
+          "sort_order": 3,
+          "code": "it('issues a termin invoice only once per milestone', function () {\n    $contract = Contract::factory()\n        ->withTerminPlan([30, 40, 30])\n        ->create();\n\n    $first  = app(InvoiceService::class)->issueTermin($contract, 1);\n    $second = app(InvoiceService::class)->issueTermin($contract, 1);\n\n    expect($first->id)->toBe($second->id)\n        ->and($contract->invoices()->count())->toBe(1)\n        ->and($first->amount)->toBe('3000000.00');\n});\n\nit('rejects a termin beyond the contract total', function () {\n    $contract = Contract::factory()->fullyInvoiced()->create();\n\n    app(InvoiceService::class)->issueTermin($contract, 4);\n})->throws(InvalidTerminException::class);"
+        }
+      },
+      {
+        "id": "case-04-platform-id",
+        "slug": "case-04-platform-id",
+        "status": "published",
+        "data": {
+          "title": "Library API Reusable, Sinkronisasi Gov & Face Recognition",
+          "kicker": "Platform & AI",
+          "summary": "Satu library API Laravel reusable kini menopang 3+ proyek: sinkronisasi platform pemerintah dengan konektor retry-safe, plus face matching AWS Rekognition, semuanya menjawab di bawah 3 detik pada server kecil 1GB.",
+          "metric": "API < 3 dtk",
+          "metric_label": "Satu SDK, tiga-plus proyek, di bawah 3 detik",
+          "pipeline": "SDK API Reusable → Sinkronisasi Platform Gov → Face Recognition",
+          "sort_order": 4,
+          "code": "final class GovSyncConnector\n{\n    public function push(AttendanceBatch $batch): SyncResult\n    {\n        return retry(3, function () use ($batch) {\n            $response = Http::withToken($this->token())\n                ->timeout(10)\n                ->post($this->endpoint . '/attendance', [\n                    'batch_id' => $batch->uuid, // idempotency key\n                    'records'  => $batch->toGovPayload(),\n                ]);\n\n            $response->throw();\n            return SyncResult::accepted($response->json('receipt'));\n        }, 250);\n    }\n}"
+        }
       }
     ],
     "pillars": [
@@ -974,6 +1186,54 @@
           "kicker": "Infrastructure",
           "badge": "Sub-3s on 1GB server",
           "body": "Nginx, PHP-FPM, Octane, and NestJS tuned to answer in under 3 seconds on a 1GB server. Lean servers, production manners.",
+          "sort_order": 4
+        }
+      },
+      {
+        "id": "pillar-backend-id",
+        "slug": "pillar-backend-id",
+        "status": "published",
+        "data": {
+          "title": "Backend & ERP Enterprise",
+          "kicker": "Backend",
+          "badge": "HMAC-SHA256 · Pest QA",
+          "body": "Callback pembayaran anti-palsu, alur ERP quotation-hingga-invoice, dan library API reusable. Terverifikasi, terkunci, dan teruji sebelum menyentuh uang.",
+          "sort_order": 1
+        }
+      },
+      {
+        "id": "pillar-seo-id",
+        "slug": "pillar-seo-id",
+        "status": "published",
+        "data": {
+          "title": "Web Klien & SEO #1 Google",
+          "kicker": "Web Klien & SEO",
+          "badge": "#1 kalibrasi tutsit",
+          "body": "Situs B2B yang direkayasa di sekitar arsitektur keyword, JSON-LD, dan Core Web Vitals 90+. Dibangun untuk ditemukan pertama dan mengubah pencarian menjadi enquiry WhatsApp.",
+          "sort_order": 2
+        }
+      },
+      {
+        "id": "pillar-mobile-id",
+        "slug": "pillar-mobile-id",
+        "status": "published",
+        "data": {
+          "title": "Mobile AI & Biometrik",
+          "kicker": "Mobile & AI",
+          "badge": "GIS · AWS Rekognition",
+          "body": "Aplikasi React Native dan Flutter dengan geofencing, face recognition, dan input AI (foto/suara) yang benar-benar disukai tim lapangan.",
+          "sort_order": 3
+        }
+      },
+      {
+        "id": "pillar-infra-id",
+        "slug": "pillar-infra-id",
+        "status": "published",
+        "data": {
+          "title": "Infrastruktur & Tuning",
+          "kicker": "Infrastruktur",
+          "badge": "Sub-3 dtk di 1GB",
+          "body": "Nginx, PHP-FPM, Octane, dan NestJS yang di-tuning menjawab di bawah 3 detik pada server 1GB. Server ramping, tata krama produksi.",
           "sort_order": 4
         }
       }
@@ -1031,6 +1291,62 @@
             {
               "title": "Top-Ranked Graduate",
               "body": "Software Engineering major, class of 2025, graduated with a GPA of 89.01 out of 100."
+            }
+          ]
+        }
+      },
+      {
+        "id": "exp-maxximum-id",
+        "slug": "exp-maxximum-id",
+        "status": "published",
+        "data": {
+          "title": "PT Maxximum Digital Indonesia (Artristik Studio)",
+          "meta": "Software Engineer · Sep 2025 – Sekarang · Bandung",
+          "sort_order": 1,
+          "points": [
+            {
+              "title": "Pembayaran, Marketplace & ERP",
+              "body": "Alur pembayaran dengan callback gateway terverifikasi HMAC; marketplace Swiss di-upgrade Laravel 10 ke 13 dengan PayPal; dan modul ERP teruji Pest yang mencakup quotation, rencana budget, kontrak, dan progress billing."
+            },
+            {
+              "title": "Platform & AI",
+              "body": "Library API reusable di 3+ proyek, sinkronisasi platform pemerintah, sistem kepatuhan inspeksi, dan face recognition AWS Rekognition."
+            }
+          ]
+        }
+      },
+      {
+        "id": "exp-bara-id",
+        "slug": "exp-bara-id",
+        "status": "published",
+        "data": {
+          "title": "PT Bara Multi Prima Teknovasi",
+          "meta": "Magang Software Engineering · Nov 2024 – Jun 2025",
+          "sort_order": 2,
+          "points": [
+            {
+              "title": "Platform Absensi GIS",
+              "body": "Absensi geofencing GIS React Native + API Laravel + PostgreSQL untuk tim lapangan."
+            },
+            {
+              "title": "Service Ramping & Redesain App",
+              "body": "Service NestJS dan GraphQL yang menjawab di bawah 3 detik pada server 1GB, dan redesain app Capacitor untuk kegunaan lapangan."
+            }
+          ]
+        }
+      },
+      {
+        "id": "exp-smkn11-id",
+        "slug": "exp-smkn11-id",
+        "status": "published",
+        "data": {
+          "title": "SMKN 11 Bandung",
+          "meta": "Lulusan Peringkat Teratas · IPK 89,01 · 2024 – 2025",
+          "sort_order": 3,
+          "points": [
+            {
+              "title": "Lulusan Peringkat Teratas",
+              "body": "Jurusan Rekayasa Perangkat Lunak, angkatan 2025, lulus dengan IPK 89,01 dari 100."
             }
           ]
         }
@@ -1134,6 +1450,104 @@
           "contact_whatsapp_url": "https://wa.me/6285183200603",
           "contact_website_url": "https://hasban.my.id"
         }
+      },
+      {
+        "id": "home-id",
+        "slug": "home-id",
+        "status": "published",
+        "data": {
+          "hero_eyebrow": "End-to-End Fullstack Engineer · Cimahi / Bandung",
+          "hero_meta": "Web Apps · ERP & Payment APIs · Mobile & AI · #1 Google SEO",
+          "hero_line1": "Saya membangun produk",
+          "hero_line2": "digital yang lengkap, dari",
+          "hero_line_accent": "database hingga SEO #1.",
+          "hero_pitch": "Saya Hasban Fardani, full-stack engineer di Bandung. Saya mengantar produk dari database hingga rilis: backend pembayaran yang tak bisa dipalsukan, sistem ERP yang dijaga automated test, aplikasi mobile berfitur AI, dan situs klien yang ranking #1 di Google. Satu engineer, seluruh siklus, tanpa ada yang hilang di serah-terima.",
+          "metrics": [
+            {
+              "value": "#1 Google",
+              "label": "Peringkat Google"
+            },
+            {
+              "value": "1.000+",
+              "label": "Skala katalog & proyek"
+            },
+            {
+              "value": "0 Lolos",
+              "label": "Pembayaran palsu"
+            },
+            {
+              "value": "Juara 1",
+              "label": "LKS Web Tech 2024"
+            }
+          ],
+          "layers": [
+            {
+              "kicker": "Layer antarmuka",
+              "title": "Frontend & SEO #1 Google",
+              "badge": "React · Vue · Livewire · Tailwind & JSON-LD",
+              "description": "Antarmuka yang dibangun untuk konversi dan ranking, dengan structured data yang mengantar situs klien ke #1 Google.",
+              "note": "Frontend semantik React, Vue, atau Livewire, styling Tailwind, dan JSON-LD, kombinasi yang membawa situs klien ke #1 Google."
+            },
+            {
+              "kicker": "Layer backend",
+              "title": "Backend ERP & API Pembayaran",
+              "badge": "Laravel 10–13 · Filament · Octane & NestJS · HMAC-SHA256",
+              "description": "Logika bisnis yang tak boleh gagal diam-diam: suite ERP dan callback pembayaran terverifikasi HMAC-SHA256.",
+              "note": "Suite ERP Laravel dan Filament, service Octane dan NestJS, serta callback pembayaran terverifikasi HMAC-SHA256, sehingga webhook palsu tak pernah menyentuh ledger."
+            },
+            {
+              "kicker": "Layer mobile",
+              "title": "Mobile AI & Biometrik",
+              "badge": "React Native · Flutter · Hono & AWS Rekognition · GIS + AI",
+              "description": "Mobile siap lapangan dengan geofencing GIS, edge API, dan face matching untuk absensi nyata.",
+              "note": "Aplikasi React Native dan Flutter dengan geofencing GIS, Hono edge API, dan face matching AWS Rekognition untuk absensi dan identitas di lapangan."
+            },
+            {
+              "kicker": "Layer data",
+              "title": "Data, QA Pest & DevOps",
+              "badge": "PostgreSQL Row Locks · Pest PHP · Docker & Nginx · Di bawah 3 dtk di 1GB",
+              "description": "Bukti sebelum produksi: row lock, Pest suite, dan tuning Docker/Nginx di bawah 3 detik pada server 1GB.",
+              "note": "Skema PostgreSQL ternormalisasi dengan row lock, Pest suite yang menjaga aliran uang ERP, dan tuning Docker dan Nginx yang menjawab di bawah 3 detik pada server 1GB."
+            }
+          ],
+          "manifesto_kicker": "Filosofi Engineering",
+          "manifesto": "Kebanyakan developer hanya menyentuh satu potong produk. Saya mengambil alih seluruh siklus: merancang database, melindungi webhook pembayaran dari spoofing, menutup aliran uang dengan automated test, dan membawa situs klien ke #1 Google untuk kata kunci yang benar-benar dicari pembeli, seperti kalibrasi tutsit.",
+          "systems_kicker": "Sistem enterprise dan backend",
+          "systems_title": "Production engineering, dikerjakan on-site",
+          "systems_intro": "Pilihan pekerjaan sistem produksi. Nama klien dirahasiakan, tetapi arsitektur, keputusan keamanan, dan test coverage di bawah ini nyata.",
+          "clients_kicker": "Platform klien live dan hasil pencarian",
+          "clients_title": "Situs klien ranking #1 di Google, plus proyek independen",
+          "serp_items": [
+            {
+              "key": "metrotech",
+              "button_label": "kalibrasi tutsit: Metrotech",
+              "query": "kalibrasi tutsit",
+              "url": "https://kalibrasimetrotech.co.id",
+              "title": "PT Metrotech Permata Engineering, Jasa Kalibrasi TUTSIT & Alat Ukur KAN ISO/IEC 17025",
+              "description": "Jasa kalibrasi TUTSIT dan alat ukur terakreditasi KAN ISO/IEC 17025. Laboratorium kalibrasi untuk industri manufaktur, otomotif, dan laboratorium uji.",
+              "note": "Caranya: arsitektur keyword, structured data, Core Web Vitals yang cepat, katalog 40 instrumen, dan enquiry WhatsApp langsung."
+            },
+            {
+              "key": "barkas",
+              "button_label": "Barkas Jaya Solusindo",
+              "query": "barkas jaya solusindo",
+              "url": "https://barkasjayasolusindo.com",
+              "title": "Barkas Jaya Solusindo, Akuisisi Aset, Bongkaran & Material B2B Bandung",
+              "description": "Jasa akuisisi aset, bongkaran gedung, dan material bekas industri untuk B2B di Bandung. Survey foto via WhatsApp, penawaran cepat, legalitas NIB/PKP.",
+              "note": "Caranya: Material Finder 10 kategori, survei foto via WhatsApp, dan optimasi pencarian lokal."
+            }
+          ],
+          "capabilities_kicker": "Kapabilitas full-spectrum",
+          "capabilities_title": "Setiap layer produk modern, dirancang dan dirilis satu engineer.",
+          "experience_kicker": "Karier dan kredensial",
+          "experience_title": "Dua peran engineering di Bandung, plus masa sekolah yang mengawali semuanya.",
+          "contact_kicker": "Ketersediaan untuk peran dan proyek",
+          "contact_title": "Butuh sistem dibangun atau situs ranking #1?",
+          "contact_body": "Berbasis di Cimahi / Bandung. Tersedia on-site di Bandung, remote, dan untuk proyek end-to-end: database, backend, mobile, dan SEO yang membuat produk ditemukan.",
+          "contact_email": "hasbanfardani@gmail.com",
+          "contact_whatsapp_url": "https://wa.me/6285183200603",
+          "contact_website_url": "https://hasban.my.id"
+        }
       }
     ],
     "certificates": [
@@ -1146,6 +1560,18 @@
           "issuer": "LSP",
           "year": "2025",
           "body": "Certified Highly Competent across 18 units covering data structures, SQL, and structured programming.",
+          "sort_order": 1
+        }
+      },
+      {
+        "id": "cert-lsp-2025-id",
+        "slug": "lsp-highly-competent-2025-id",
+        "status": "published",
+        "data": {
+          "title": "Sangat Kompeten, Sertifikasi Kompetensi Nasional (LSP)",
+          "issuer": "LSP",
+          "year": "2025",
+          "body": "Tersertifikasi Sangat Kompeten di 18 unit yang mencakup struktur data, SQL, dan pemrograman terstruktur.",
           "sort_order": 1
         }
       }
@@ -1184,6 +1610,42 @@
           "issuer": "Codewars",
           "year": "2025",
           "body": "90 kata completed in algorithmic problem solving.",
+          "sort_order": 3
+        }
+      },
+      {
+        "id": "ach-lks-2024-id",
+        "slug": "lks-web-tech-2024-id",
+        "status": "published",
+        "data": {
+          "title": "Juara 1, LKS Web Technologies",
+          "issuer": "Kota Bandung",
+          "year": "2024",
+          "body": "Merancang dan merilis aplikasi web yang aman dan berjalan dalam kondisi timed dan offline.",
+          "sort_order": 1
+        }
+      },
+      {
+        "id": "ach-excellence-2025-id",
+        "slug": "student-excellence-2025-id",
+        "status": "published",
+        "data": {
+          "title": "Penghargaan Student Excellence",
+          "issuer": "SMKN 11 Bandung",
+          "year": "2025",
+          "body": "Diakui sebagai siswa berprestasi di Rekayasa Perangkat Lunak.",
+          "sort_order": 2
+        }
+      },
+      {
+        "id": "ach-codewars-id",
+        "slug": "codewars-5-kyu-id",
+        "status": "published",
+        "data": {
+          "title": "Codewars 5 kyu",
+          "issuer": "Codewars",
+          "year": "2025",
+          "body": "90 kata selesai dalam problem solving algoritmik.",
           "sort_order": 3
         }
       }
