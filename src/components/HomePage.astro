@@ -29,7 +29,7 @@ const STR = {
 		chip2: "How do you stop payment spoofing & double clicks?",
 		chip3: "What proves Hasban is end-to-end fullstack?",
 		placeholder: "Ask about Hasban's experience…", send: "Send", close: "Close",
-		proofCta: "See how it ranked #1",
+		availability: "Based in Bandung, Indonesia, available on-site and remote",
 		footRole: "End-to-End Fullstack Engineer", work: "Work", about: "About", contact: "Contact",
 		seoTitle: "Hasban Fardani · End-to-End Fullstack Engineer (Web, ERP, Mobile, Cloud & #1 SEO)",
 		seoDesc: "Hasban Fardani, End-to-End Fullstack Engineer in Cimahi/Bandung. Laravel payment backends, Pest-tested ERP, mobile & AI apps, and client websites ranked #1 on Google for kalibrasi tutsit.",
@@ -47,7 +47,7 @@ const STR = {
 		chip2: "Bagaimana cara menghentikan payment spoofing & double clicks?",
 		chip3: "Apa bukti Hasban fullstack end-to-end?",
 		placeholder: "Tanya pengalaman Hasban…", send: "Kirim", close: "Tutup",
-		proofCta: "Lihat caranya ranking #1",
+		availability: "Berbasis di Bandung, Indonesia, tersedia on-site dan remote",
 		footRole: "End-to-End Fullstack Engineer", work: "Karya", about: "Tentang", contact: "Kontak",
 		seoTitle: "Hasban Fardani · Fullstack Engineer End-to-End (Web, ERP, Mobile, Cloud & SEO #1)",
 		seoDesc: "Hasban Fardani, Fullstack Engineer End-to-End di Cimahi/Bandung. Backend pembayaran Laravel, ERP teruji Pest, aplikasi mobile & AI, dan situs klien peringkat #1 Google untuk kalibrasi tutsit.",
@@ -111,7 +111,6 @@ const navList =
 				{ label: isId ? "Karier" : "Trajectory", url: "#section-experience" },
 				{ label: isId ? "Kontak" : "Contact", url: "#section-contact" },
 			];
-const proofProject = projects.find((p: any) => p?.data?.featured_image) ?? projects[0];
 const caseWord = isId ? "Kasus" : "Case";
 const ofWord = isId ? "dari" : "of";
 
@@ -288,28 +287,9 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 					<p class="t-body hero-pitch" data-hero-fade>{home.hero_pitch}</p>
 					<div class="hero-ctas" data-hero-fade>
 						<a class="btn btn-ink" href="#section-systems">{s.systems}</a>
-						<a class="btn btn-ghost" href="#section-clients">{s.clients}</a>
-						<button class="btn btn-accent" type="button" data-ask-open>Ask AI <span class="kbd" aria-hidden="true">⌘K</span></button>
 					</div>
-					<dl class="metrics" data-hero-fade>
-						{metrics.map((m: any) => (
-							<div class="metric"><dt class="t-small">{m.label}</dt><dd class="metric-value">{m.value}</dd></div>
-						))}
-					</dl>
+					<p class="hero-avail" data-hero-fade>{s.availability}</p>
 				</div>
-
-				{proofProject && (
-					<figure class="proof" id="proofCard">
-						{proofProject.data.featured_image && (
-							<div class="proof-media"><Image image={proofProject.data.featured_image} loading="eager" /></div>
-						)}
-						<figcaption class="proof-cap">
-							<p class="t-small proof-client">{[proofProject.data.client, proofProject.data.highlight].filter(Boolean).join(" · ")}</p>
-							<p class="proof-title">{proofProject.data.title}</p>
-							<a class="proof-link" href="#section-clients">{s.proofCta} <svg class="ext" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" /></svg></a>
-						</figcaption>
-					</figure>
-				)}
 				<div class="stack-index" id="stackIndex" aria-label="Technology stack">
 					<p class="t-small stack-head">{s.stackHead}</p>
 					<div class="rows" id="layerRows">
@@ -710,9 +690,6 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 				.nav-links { display: none; }
 				.burger { display: inline-flex; }
 			}
-			@media (max-width: 900px) {
-				.stack-card { position: static; }
-			}
 			@media (min-width: 1151px) { .mobile-menu { display: none; } }
 			@media (max-width: 560px) {
 				.pill-nav { gap: 0.5rem; padding: 0 0.5rem 0 0.9rem; }
@@ -728,29 +705,17 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			/* Hero: full-width statement, then copy + stack. One face, one colour. */
 			.hero {
 				padding-top: 8.5rem; padding-bottom: var(--section-gap);
-				display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 4vw, 4rem); align-items: start;
+				display: grid; grid-template-columns: 1fr; gap: clamp(2rem, 4vw, 3rem); align-items: start;
 			}
-			.hero-title { grid-column: 1 / -1; margin: 0; max-width: 22ch; }
-			@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+			.hero-title { margin: 0; max-width: 22ch; }
+			.hero-copy { max-width: 62ch; }
 			.mask { display: block; overflow: hidden; padding-bottom: 0.08em; }
 			.mask-line { display: block; will-change: transform; }
 			.hero-pitch { margin: 0 0 1.8rem; }
 			.hero-pitch strong { color: var(--ink); }
-			.hero-ctas { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 2.4rem; }
-			.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 0; }
-			@media (max-width: 640px) { .metrics { grid-template-columns: repeat(2, 1fr); } }
-			.metric dt { color: var(--muted); margin-bottom: 0.35rem; }
-			.metric dd { margin: 0; font-size: 1.65rem; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
-			.metric dd span { font-size: 1rem; font-weight: 700; color: var(--muted); }
-			.proof { margin: 0; }
-			.proof-media { aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--card-radius); background: var(--surface); }
-			.proof-media :global(img) { width: 100%; height: 112%; object-fit: cover; display: block; will-change: transform; }
-			.proof-cap { padding-top: 0.9rem; display: grid; gap: 0.25rem; }
-			.proof-client { color: var(--muted); margin: 0; }
-			.proof-title { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); margin: 0; }
-			.proof-link { color: var(--accent); font-weight: 700; text-decoration: none; width: fit-content; }
-			.proof-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-			.stack-index { grid-column: 1 / -1; margin-top: 0.5rem; }
+			.hero-ctas { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 1.4rem; }
+			.hero-avail { color: var(--muted); margin: 0; font-size: 0.95rem; }
+			.stack-index { margin-top: 0.5rem; }
 			.stack-head { color: var(--muted); margin: 0 0 0.8rem; }
 			.rows { display: grid; }
 			.stack-row {
@@ -1198,9 +1163,6 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 				/* Hero: the single allowed fade-in, then fade-out on scroll */
 				gsap.fromTo(".mask-line", { yPercent: 115 }, { yPercent: 0, duration: 1, ease: "power4.out", delay: 0.1 });
 				gsap.fromTo("[data-hero-fade]", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.09, ease: "power3.out", delay: 0.35, clearProps: "transform" });
-				gsap.fromTo("#proofCard",
-					{ clipPath: "inset(0 0 100% 0)", y: 40 },
-					{ clipPath: "inset(0 0 0% 0)", y: 0, duration: 1.1, ease: "power4.out", delay: 0.45, clearProps: "clip-path" });
 				gsap.fromTo(".stack-row",
 					{ clipPath: "inset(0 100% 0 0)" },
 					{ clipPath: "inset(0 0% 0 0)", duration: 0.8, stagger: 0.08, ease: "power3.out", delay: 0.6, clearProps: "clip-path" });
@@ -1208,28 +1170,36 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 					opacity: 0.15, y: -46, ease: "none",
 					scrollTrigger: { trigger: "#section-overview", start: "top top", end: "bottom top", scrub: true },
 				});
-				/* Proof image parallax (scroll-scrubbed, no fade) */
-				gsap.fromTo(".proof-media :is(img, picture img)", { yPercent: -6 }, {
-					yPercent: 6, ease: "none",
-					scrollTrigger: { trigger: "#proofCard", start: "top bottom", end: "bottom top", scrub: true },
+				/* Hero parallax: title and copy drift apart on scroll */
+				gsap.to(".hero-title", {
+					yPercent: -18, ease: "none",
+					scrollTrigger: { trigger: "#section-overview", start: "top top", end: "bottom top", scrub: true },
+				});
+				gsap.to("#stackIndex", {
+					y: -30, ease: "none",
+					scrollTrigger: { trigger: "#section-overview", start: "top top", end: "bottom top", scrub: true },
 				});
 
-				/* Wipe reveals everywhere else: clip-path + transform only, zero opacity */
+				/* Every section below the hero is scrub-driven: wipe progress follows scroll */
 				const revealCfg = {
-					manifesto: { from: { clipPath: "inset(0 0 100% 0)", y: 28 }, to: { clipPath: "inset(0 0 0% 0)", y: 0, duration: 0.9, ease: "power4.out" } },
-					head: { from: { clipPath: "inset(0 0 100% 0)", y: 34 }, to: { clipPath: "inset(0 0 0% 0)", y: 0, duration: 0.9, ease: "power4.out" } },
-					card: { from: { clipPath: "inset(0 0 100% 0)", y: 44 }, to: { clipPath: "inset(0 0 0% 0)", y: 0, duration: 0.95, ease: "power4.out" } },
-					scale: { from: { clipPath: "inset(6% 4% 6% 4%)", scale: 0.97 }, to: { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 0.95, ease: "power3.out" } },
-					tilt: { from: { clipPath: "inset(0 0 100% 0)", y: 40, rotationX: -7 }, to: { clipPath: "inset(0 0 0% 0)", y: 0, rotationX: 0, duration: 1, ease: "power4.out" } },
+					manifesto: { from: { clipPath: "inset(0 0 100% 0)", y: 28 }, to: { clipPath: "inset(0 0 0% 0)", y: 0 } },
+					head: { from: { clipPath: "inset(0 0 100% 0)", y: 34 }, to: { clipPath: "inset(0 0 0% 0)", y: 0 } },
+					card: { from: { clipPath: "inset(0 0 100% 0)", y: 44 }, to: { clipPath: "inset(0 0 0% 0)", y: 0 } },
+					scale: { from: { clipPath: "inset(6% 4% 6% 4%)", scale: 0.97 }, to: { clipPath: "inset(0% 0% 0% 0%)", scale: 1 } },
+					tilt: { from: { clipPath: "inset(0 0 100% 0)", y: 40, rotationX: -7 }, to: { clipPath: "inset(0 0 0% 0)", y: 0, rotationX: 0 } },
 				};
 				Object.entries(revealCfg).forEach(([kind, cfg]) => {
-					const els = $$(`[data-reveal="${kind}"]`);
-					if (!els.length) return;
-					gsap.set(els, cfg.from);
-					ScrollTrigger.batch(els, {
-						start: "top 89%",
-						onEnter: (batch) => gsap.to(batch, { ...cfg.to, stagger: 0.1, overwrite: true, clearProps: "transform,clip-path" }),
+					$$(`[data-reveal="${kind}"]`).forEach((el) => {
+						gsap.fromTo(el, cfg.from, {
+							...cfg.to, ease: "none",
+							scrollTrigger: { trigger: el, start: "top 94%", end: "top 52%", scrub: true },
+						});
 					});
+				});
+				/* Footer name drift: slow scrubbed slide */
+				gsap.fromTo(".foot-name", { xPercent: -4 }, {
+					xPercent: 4, ease: "none",
+					scrollTrigger: { trigger: ".site-foot", start: "top bottom", end: "bottom bottom", scrub: true },
 				});
 
 				/* Manifesto: text-by-text illumination scrub */
@@ -1252,28 +1222,6 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 						},
 					});
 				}
-
-				/* Metrics count-up for real numbers (10+) */
-				$$(".metric-value").forEach((el) => {
-					const m = el.textContent.match(/([\d.,]+)/);
-					if (!m) return;
-					const target = Number(m[1].replace(/[.,]/g, ""));
-					if (!target || target < 10) return;
-					const prefix = el.textContent.slice(0, m.index);
-					const suffix = el.textContent.slice(m.index + m[1].length);
-					const useDot = m[1].includes(".");
-					const obj = { v: 0 };
-					ScrollTrigger.create({
-						trigger: el, start: "top 92%", once: true,
-						onEnter: () => gsap.to(obj, {
-							v: target, duration: 1.5, ease: "power2.out",
-							onUpdate: () => {
-								const n = Math.round(obj.v).toLocaleString("en-US");
-								el.textContent = prefix + (useDot ? n.replace(/,/g, ".") : n) + suffix;
-							},
-						}),
-					});
-				});
 
 				/* Pillar drift: scrubbed opposing parallax across the grid */
 				$$("[data-tilt]").forEach((card, i) => {

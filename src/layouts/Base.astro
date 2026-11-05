@@ -39,11 +39,11 @@ if (Astro.cache?.enabled) {
 }
 
 const siteTitle = settings?.title || "Studio";
-const separator = settings?.seo?.titleSeparator || " — ";
+const separator = settings?.seo?.titleSeparator || " · ";
 const fullTitle = !title
 	? siteTitle
 	: title === siteTitle ||
-		  title.endsWith(` — ${siteTitle}`) ||
+		  title.endsWith(` · ${siteTitle}`) ||
 		  title.endsWith(` | ${siteTitle}`)
 		? title
 		: `${title}${separator}${siteTitle}`;
