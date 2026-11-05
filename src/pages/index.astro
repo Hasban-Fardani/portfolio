@@ -27,6 +27,17 @@ const cases = [...(casesRes.entries ?? [])].sort(bySort);
 const pillars = [...(pillarsRes.entries ?? [])].sort(bySort);
 const experiences = [...(expRes.entries ?? [])].sort(bySort);
 const menuItems: any[] = menuRes.data?.items ?? [];
+const navList =
+	menuItems.length > 0
+		? menuItems.map((m: any) => ({ label: m.label, url: m.url }))
+		: [
+				{ label: "Overview", url: "#section-overview" },
+				{ label: "Systems", url: "#section-systems" },
+				{ label: "Clients", url: "#section-clients" },
+				{ label: "Stack", url: "#section-capabilities" },
+				{ label: "Trajectory", url: "#section-experience" },
+				{ label: "Contact", url: "#section-contact" },
+			];
 
 const metrics: any[] = home.metrics ?? [];
 const layers: any[] = home.layers ?? [];
@@ -99,20 +110,11 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 				<span class="brand-role">· Fullstack Engineer</span>
 				<span class="brand-loc t-mono" id="brandLoc">Cimahi / Bandung</span>
 			</a>
-			<nav class="nav-links" aria-label="Homepage sections">
+			<nav class="nav-links" id="navLinks" aria-label="Homepage sections">
 				<span class="nav-pill" id="navPill" aria-hidden="true"></span>
-				{menuItems.length > 0 ? menuItems.map((item: any, i: number) => (
-					<a class:list={["nav-link", i === 0 && "is-active"]} data-nav href={item.url}>{item.label}</a>
-				)) : (
-					<>
-						<a class="nav-link is-active" data-nav href="#section-overview">Overview</a>
-						<a class="nav-link" data-nav href="#section-systems">Systems</a>
-						<a class="nav-link" data-nav href="#section-clients">Clients</a>
-						<a class="nav-link" data-nav href="#section-capabilities">Stack</a>
-						<a class="nav-link" data-nav href="#section-experience">Trajectory</a>
-						<a class="nav-link" data-nav href="#section-contact">Contact</a>
-					</>
-				)}
+				{navList.map((item: any, i: number) => (
+					<a class:list={["nav-link", i === 0 && "is-active"]} data-nav href={item.url}><span class="nav-label">{item.label}</span></a>
+				))}
 			</nav>
 			<div class="nav-actions">
 				<button class="ask-btn" type="button" data-ask-open aria-haspopup="dialog">
@@ -123,7 +125,15 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 					<svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
 					<span id="themeLabel">Dark</span>
 				</button>
+				<button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+					<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+				</button>
 			</div>
+			<nav class="mobile-menu" id="mobileMenu" aria-label="Homepage sections" hidden>
+				{navList.map((item: any, i: number) => (
+					<a class:list={["m-link", i === 0 && "is-active"]} data-nav-panel href={item.url}>{item.label}</a>
+				))}
+			</nav>
 		</header>
 
 		<main>
@@ -431,7 +441,7 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			/* Theme wipe */
 			.theme-wipe {
 				position: fixed; inset: 0; z-index: 200; pointer-events: none;
-				background: var(--ink); clip-path: circle(0% at 92% 4%); visibility: hidden;
+				background: var(--bg); visibility: hidden;
 			}
 			/* Pill navbar */
 			.pill-nav {
@@ -443,15 +453,19 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 				backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
 				transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 			}
-			.pill-nav.scrolled { width: min(800px, 92vw); }
+			.pill-nav.scrolled { width: min(980px, 94vw); }
 			.brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--ink); font-weight: 800; white-space: nowrap; }
 			.brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: none; }
 			.brand-role { font-weight: 500; color: var(--muted); display: none; }
 			.brand-loc { color: var(--muted); transition: opacity 0.3s ease; display: none; }
 			.pill-nav.scrolled .brand-loc { opacity: 0; }
 			@media (min-width: 1280px) { .brand-role { display: inline; } }
-			@media (min-width: 900px) { .brand-loc { display: inline; } }
-			.nav-links { position: relative; display: flex; align-items: center; gap: 0.15rem; }
+			@media (min-width: 1100px) { .brand-loc { display: inline; } }
+			.nav-links {
+				position: relative; display: flex; align-items: center; gap: 0.15rem;
+				flex: 1 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: none;
+			}
+			.nav-links::-webkit-scrollbar { display: none; }
 			.nav-pill {
 				position: absolute; inset: 0 auto auto 0; width: 100%; height: 100%;
 				background: var(--ink); border-radius: 999px; z-index: 0; pointer-events: none;
@@ -459,14 +473,13 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			.nav-link {
 				position: relative; z-index: 1; padding: 0.45rem 0.8rem; border-radius: 999px;
 				text-decoration: none; color: var(--body); font-size: 0.9rem; font-weight: 600; white-space: nowrap;
-				transition: color 0.25s ease;
+				transition: color 0.25s ease; flex: none;
 			}
+			.nav-label { position: relative; z-index: 1; }
 			.nav-link.is-active { color: var(--bg); }
-			.nav-link .nl-num { color: inherit; opacity: 0.65; font-family: var(--font-mono), monospace; font-size: 0.72rem; }
-			.nav-md, .nav-sm, .nav-lg { display: none; }
-			@media (min-width: 768px) { .nav-md { display: inline-block; } }
-			@media (min-width: 560px) { .nav-sm { display: inline-block; } }
-			@media (min-width: 1024px) { .nav-lg { display: inline-block; } }
+			.nav-link:hover { color: var(--ink); }
+			.nav-link.is-active:hover { color: var(--bg); }
+			@media (max-width: 1150px) { .nav-link { padding: 0.45rem 0.6rem; font-size: 0.85rem; } }
 			.nav-actions { display: flex; align-items: center; gap: 0.5rem; flex: none; }
 			.ask-btn {
 				display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer;
@@ -480,6 +493,49 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			}
 			[data-theme="light"] .icon-moon { display: none; }
 			[data-theme="dark"] .icon-sun { display: none; }
+			/* Hamburger + mobile menu (<=900px) */
+			.burger {
+				display: none; flex-direction: column; align-items: center; justify-content: center;
+				gap: 4px; cursor: pointer; flex: none;
+				background: transparent; color: var(--ink); border: 1px solid var(--border);
+				border-radius: 999px; width: 40px; height: 40px; padding: 0;
+			}
+			.burger span { display: block; width: 16px; height: 2px; border-radius: 2px; background: currentColor; transition: transform 0.25s ease, opacity 0.2s ease; }
+			.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+			.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+			.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+			.mobile-menu {
+				position: absolute; top: calc(100% + 10px); left: 0; right: 0;
+				background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+				padding: 0.55rem; display: grid; gap: 0.15rem;
+				box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.28);
+				transform-origin: top center; animation: menu-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+			}
+			.mobile-menu[hidden] { display: none; }
+			@keyframes menu-in { from { opacity: 0; transform: translateY(-8px) scale(0.98); } to { opacity: 1; transform: none; } }
+			.m-link {
+				display: block; padding: 0.8rem 1rem; border-radius: 12px;
+				color: var(--body); font-weight: 600; font-size: 0.95rem; text-decoration: none;
+			}
+			.m-link:hover { background: var(--surface); color: var(--ink); }
+			.m-link.is-active { background: var(--surface); color: var(--ink); }
+			@media (max-width: 900px) {
+				.nav-links { display: none; }
+				.burger { display: inline-flex; }
+				.stack-card { position: static; }
+			}
+			@media (min-width: 901px) { .mobile-menu { display: none; } }
+			@media (max-width: 560px) {
+				.pill-nav { gap: 0.5rem; padding: 0 0.5rem 0 0.9rem; }
+				#themeLabel { display: none; }
+				.theme-toggle { padding: 0.55rem 0.65rem; }
+				.ask-btn { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
+				.hero-ctas { display: grid; grid-template-columns: 1fr 1fr; }
+				.hero-ctas .btn { justify-content: center; }
+				.hero-ctas .btn-accent { grid-column: 1 / -1; }
+				.metric dd { font-size: 1.35rem; }
+			}
+			@media (pointer: coarse) { .ask-btn .kbd { display: none; } }
 			/* Hero */
 			.hero {
 				padding-top: 9.5rem; padding-bottom: var(--section-pad);
@@ -532,7 +588,7 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			@media (max-width: 900px) { .deck { grid-template-columns: 1fr; } .monitor { position: static; } }
 			.monitor { position: sticky; top: 96px; overflow: hidden; }
 			.monitor-top { display: flex; justify-content: space-between; align-items: start; color: var(--muted); }
-			.mon-big { font-size: 4.2rem; font-weight: 800; line-height: 1; color: var(--surface); -webkit-text-stroke: 1.5px var(--muted); }
+			.mon-big { font-size: 4.2rem; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--muted); }
 			.mon-metric { font-size: 2.2rem; font-weight: 800; color: var(--accent); margin: 1rem 0 0.2rem; letter-spacing: -0.02em; }
 			.mon-label { color: var(--muted); margin: 0 0 0.8rem; }
 			.mon-title { font-weight: 700; color: var(--ink); margin: 0 0 1.1rem; }
@@ -548,7 +604,7 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			.case-card.is-active { border-color: var(--accent); }
 			.case-title { margin-bottom: 0.7rem; }
 			.inspect-btn { margin-top: 1.1rem; }
-			.code-wrap { margin-top: 1.1rem; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--ink); }
+			.code-wrap { margin-top: 1.1rem; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: #141416; }
 			.code-lang { color: var(--muted); padding: 0.7rem 1rem 0; margin: 0; }
 			.code-wrap pre { margin: 0; padding: 1rem; overflow-x: auto; }
 			.code-wrap code { font-family: var(--font-mono), monospace; font-size: 0.82rem; line-height: 1.65; color: #f2f0e8; white-space: pre; }
@@ -557,7 +613,7 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			.serp { margin-bottom: 2.2rem; }
 			.serp-query { color: var(--muted); margin: 0 0 1.1rem; }
 			.serp-query span { color: var(--ink); }
-			.serp-url { color: var(--emerald); margin: 0.7rem 0 0.25rem; }
+			.serp-url { color: var(--emerald); margin: 0.7rem 0 0.25rem; overflow-wrap: anywhere; }
 			.serp-title { font-size: 1.25rem; font-weight: 700; color: var(--ink); margin: 0 0 0.4rem; max-width: 65ch; }
 			.serp-desc { margin: 0 0 0.6rem; }
 			.serp-note { color: var(--muted); margin: 0 0 1.2rem; }
@@ -614,7 +670,7 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			.contact-card { text-align: left; }
 			.contact-title { margin: 0.6rem 0 1rem; max-width: 16ch; }
 			.contact-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 1.8rem 0 1.2rem; }
-			.contact-foot { color: var(--muted); margin: 0; }
+			.contact-foot { color: var(--muted); margin: 0; overflow-wrap: anywhere; }
 			.site-foot { padding-block: 2.2rem 3rem; border-top: 1px solid var(--border); color: var(--muted); }
 			.site-foot a { color: var(--ink); }
 			/* Drawer */
@@ -690,11 +746,14 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 				const r = themeBtn.getBoundingClientRect();
 				const x = ((r.left + r.width / 2) / window.innerWidth) * 100;
 				const y = ((r.top + r.height / 2) / window.innerHeight) * 100;
+				// Circular reveal: cover the screen in the OLD theme colour, switch
+				// underneath, then shrink the cover into the toggle button.
+				wipe.style.background = getComputedStyle(document.body).backgroundColor;
 				wipe.style.visibility = "visible";
+				apply();
 				gsap.fromTo(wipe,
-					{ clipPath: `circle(0% at ${x}% ${y}%)` },
-					{ clipPath: `circle(150% at ${x}% ${y}%)`, duration: 0.65, ease: "power3.inOut",
-						onStart: apply,
+					{ clipPath: `circle(150% at ${x}% ${y}%)` },
+					{ clipPath: `circle(0% at ${x}% ${y}%)`, duration: 0.7, ease: "power3.inOut",
 						onComplete: () => { wipe.style.visibility = "hidden"; } });
 			});
 
@@ -702,9 +761,13 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 			const nav = $("#pillNav");
 			const pill = $("#navPill");
 			const navLinks = $$("[data-nav]");
+			const panelLinks = $$("[data-nav-panel]");
 			function movePill(link, animate = true) {
 				if (!link || !pill) return;
 				navLinks.forEach((l) => l.classList.toggle("is-active", l === link));
+				const href = link.getAttribute("href");
+				panelLinks.forEach((l) => l.classList.toggle("is-active", l.getAttribute("href") === href));
+				if (link.offsetParent === null) return; // desktop nav hidden (mobile) — classes only
 				if (!hasGsap || reduced || !animate) {
 					link.prepend(pill);
 					pill.style.width = "100%"; pill.style.height = "100%";
@@ -727,6 +790,33 @@ const layerJson = JSON.stringify(layerNotes).replace(/</g, "\\u003c");
 				});
 			}, { rootMargin: "-38% 0px -55% 0px" });
 			$$("main section[id]").forEach((s) => spy.observe(s));
+
+			/* ---------- Mobile menu ---------- */
+			const burger = $("#burger");
+			const mobileMenu = $("#mobileMenu");
+			function setMenu(open) {
+				if (!burger || !mobileMenu) return;
+				mobileMenu.hidden = !open;
+				burger.setAttribute("aria-expanded", String(open));
+				burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+			}
+			burger?.addEventListener("click", () => setMenu(mobileMenu.hidden));
+			panelLinks.forEach((l) => l.addEventListener("click", () => setMenu(false)));
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "Escape" && mobileMenu && !mobileMenu.hidden) {
+					setMenu(false);
+					burger?.focus();
+				}
+			});
+			document.addEventListener("click", (e) => {
+				if (mobileMenu && !mobileMenu.hidden && nav && !nav.contains(e.target)) setMenu(false);
+			});
+			window.matchMedia("(min-width: 901px)").addEventListener("change", (e) => {
+				if (!e.matches) return;
+				setMenu(false);
+				const cur = navLinks.find((l) => l.classList.contains("is-active"));
+				if (cur) movePill(cur, false);
+			});
 
 			/* ---------- Stack layers inspector ---------- */
 			const parseJson = (id) => { try { return JSON.parse(document.getElementById(id)?.textContent || "null"); } catch { return null; } };

@@ -6,6 +6,7 @@
 */
 
 :root {
+	color-scheme: light;
 	/* Redesign tokens (light) */
 	--bg: #f6f4ef;
 	--surface: #ece8df;
@@ -49,6 +50,7 @@
 }
 
 :root[data-theme="dark"] {
+	color-scheme: dark;
 	--bg: #111113;
 	--surface: #18181b;
 	--card: #1e1e22;
@@ -64,6 +66,7 @@
 
 /* Base.astro pins scheme via .light/.dark classes; keep new tokens in sync. */
 :root.dark {
+	color-scheme: dark;
 	--bg: #111113;
 	--surface: #18181b;
 	--card: #1e1e22;
@@ -92,6 +95,7 @@
 	line-height: 1.08;
 	letter-spacing: -0.032em;
 	color: var(--ink);
+	overflow-wrap: break-word;
 }
 .t-h2 {
 	font-size: var(--fs-h2);
@@ -99,6 +103,7 @@
 	line-height: 1.2;
 	letter-spacing: -0.02em;
 	color: var(--ink);
+	overflow-wrap: break-word;
 }
 .t-body {
 	font-size: var(--fs-body);

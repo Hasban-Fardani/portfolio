@@ -8,6 +8,9 @@
 	"observability": {
 		"enabled": false
 	},
+	"vars": {
+		"OPENROUTER_MODEL": "openrouter/free"
+	},
 	"d1_databases": [
 		{
 			"binding": "DB",
