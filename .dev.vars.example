@@ -1,3 +1,7 @@
 # Copy to .dev.vars for `wrangler dev` / local Cloudflare runtime. NEVER commit a real key.
 OPENROUTER_API_KEY=sk-or-v1-replace-with-your-key
 OPENROUTER_MODEL=openrouter/free
+EMDASH_OAUTH_GITHUB_CLIENT_ID=[REDACTED]
+EMDASH_OAUTH_GITHUB_CLIENT_SECRET=[REDACTED]
+EMDASH_OAUTH_GOOGLE_CLIENT_ID=[REDACTED]
+EMDASH_OAUTH_GOOGLE_CLIENT_SECRET=[REDACTED]

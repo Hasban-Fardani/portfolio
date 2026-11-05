@@ -3,6 +3,8 @@ import react from "@astrojs/react";
 import { d1, r2 } from "@emdash-cms/cloudflare";
 import { defineConfig, fontProviders } from "astro/config";
 import emdash from "emdash/astro";
+import { github } from "emdash/auth/providers/github";
+import { google } from "emdash/auth/providers/google";
 
 export default defineConfig({
 	output: "server",
@@ -16,6 +18,7 @@ export default defineConfig({
 		emdash({
 			database: d1({ binding: "DB", session: "auto", coalesce: true }),
 			storage: r2({ binding: "MEDIA" }),
+			authProviders: [github(), google()],
 		}),
 	],
 	fonts: [
